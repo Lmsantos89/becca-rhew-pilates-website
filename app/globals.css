@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  /* CAVEMAN: always reserve scrollbar space so page width never jumps between pages */
+  html {
+    scrollbar-gutter: stable;
+  }
   body {
     @apply font-body text-text-primary bg-white;
   }
