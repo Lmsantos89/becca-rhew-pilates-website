@@ -47,7 +47,7 @@ export default function Navbar() {
               <Link
                 href={href}
                 className={`text-sm transition-colors hover:text-accent ${
-                  pathname === href ? 'font-medium text-accent' : 'text-text-primary'
+                  pathname === href ? 'text-accent' : 'text-text-primary'
                 }`}
               >
                 {t(key)}
