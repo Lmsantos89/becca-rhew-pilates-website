@@ -4,6 +4,7 @@ NEXT_STEPS.md
 docs/superpowers/
 node_modules/
 .next/
+*.tsbuildinfo
 .env
 .env.local
 .env*.local
