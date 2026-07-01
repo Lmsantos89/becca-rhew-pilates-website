@@ -6,7 +6,7 @@ import { projectId, dataset } from './env';
 
 export default defineConfig({
   basePath: '/studio',
-  projectId,
+  projectId: projectId ?? 'placeholder',
   dataset,
   plugins: [
     structureTool({
