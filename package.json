@@ -1,0 +1,37 @@
+{
+  "name": "becca-rhew-pilates-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@portabletext/react": "^6.2.0",
+    "@sanity/client": "^7.23.0",
+    "@sanity/vision": "^3.98.0",
+    "@tabler/icons-react": "^3.44.0",
+    "next": "^15.5.19",
+    "next-intl": "^3.26.5",
+    "next-sanity": "^9.12.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "resend": "^6.16.0",
+    "sanity": "^3.99.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.5.2",
+    "postcss": "^8.5.16",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  }
+}
