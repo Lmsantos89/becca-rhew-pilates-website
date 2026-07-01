@@ -25,8 +25,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  function toggleLocale() {
-    const next = locale === 'en' ? 'de' : 'en';
+  function switchLocale(next: 'en' | 'de') {
+    if (next === locale) return;
     router.replace(pathname, { locale: next });
   }
 
@@ -57,12 +57,22 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
-          <button
-            onClick={toggleLocale}
-            className="text-sm font-medium uppercase tracking-widest text-muted transition-colors hover:text-accent"
-          >
-            {locale === 'en' ? 'DE' : 'EN'}
-          </button>
+          <div className="flex items-center gap-1 text-sm font-medium uppercase tracking-widest">
+            {(['en', 'de'] as const).map((code, index) => (
+              <span key={code} className="flex items-center gap-1">
+                {index > 0 && <span className="text-muted">/</span>}
+                <button
+                  onClick={() => switchLocale(code)}
+                  aria-current={locale === code ? 'true' : undefined}
+                  className={`transition-colors ${
+                    locale === code ? 'text-accent' : 'text-muted hover:text-accent'
+                  }`}
+                >
+                  {code}
+                </button>
+              </span>
+            ))}
+          </div>
           <a
             href="https://instagram.com"
             target="_blank"
