@@ -20,13 +20,17 @@ export default function ContactForm() {
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
     };
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    setStatus(res.ok ? 'success' : 'error');
-    if (res.ok) form.reset();
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      setStatus(res.ok ? 'success' : 'error');
+      if (res.ok) form.reset();
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (
