@@ -4,6 +4,7 @@ export const siteSettings = defineType({
   name: 'siteSettings',
   title: 'Site Settings',
   type: 'document',
+  // @ts-ignore -- experimental Sanity singleton guard, not yet typed
   __experimental_actions: ['update', 'publish'],
   fields: [
     defineField({ name: 'siteName', title: 'Site Name', type: 'string', validation: r => r.required() }),
