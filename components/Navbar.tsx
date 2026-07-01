@@ -64,13 +64,13 @@ export default function Navbar() {
                 <button
                   onClick={() => switchLocale(code)}
                   aria-current={locale === code ? 'true' : undefined}
-                  className={`rounded px-2 py-1 transition-colors ${
+                  className={`transition-colors ${
                     locale === code
-                      ? 'bg-accent text-white'
-                      : 'text-muted hover:text-accent'
+                      ? 'font-bold text-accent'
+                      : 'text-muted/50 hover:text-accent'
                   }`}
                 >
-                  {code}
+                  {code.toUpperCase()}
                 </button>
               </span>
             ))}
