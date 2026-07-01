@@ -57,15 +57,17 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1 text-sm font-medium uppercase tracking-widest">
+          <div className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest">
             {(['en', 'de'] as const).map((code, index) => (
-              <span key={code} className="flex items-center gap-1">
-                {index > 0 && <span className="text-muted">/</span>}
+              <span key={code} className="flex items-center gap-2">
+                {index > 0 && <span className="text-muted/60">|</span>}
                 <button
                   onClick={() => switchLocale(code)}
                   aria-current={locale === code ? 'true' : undefined}
-                  className={`transition-colors ${
-                    locale === code ? 'text-accent' : 'text-muted hover:text-accent'
+                  className={`rounded px-2 py-1 transition-colors ${
+                    locale === code
+                      ? 'bg-accent text-white'
+                      : 'text-muted hover:text-accent'
                   }`}
                 >
                   {code}
