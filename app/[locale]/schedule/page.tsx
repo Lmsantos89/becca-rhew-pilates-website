@@ -4,11 +4,19 @@ import { getSchedule } from '@/sanity/lib/queries';
 import ClassCard from '@/components/ClassCard';
 import type { Locale, ClassScheduleEntry } from '@/sanity/lib/types';
 
-const PLACEHOLDER_SCHEDULE: ClassScheduleEntry[] = [
-  { _id: 'p1', dayOfWeek: 'monday', time: '09:00', className: 'Mat Pilates — All Levels', location: 'Studio Bern', isActive: true },
-  { _id: 'p2', dayOfWeek: 'wednesday', time: '18:00', className: 'Reformer Pilates', location: 'Studio Bern', isActive: true },
-  { _id: 'p3', dayOfWeek: 'friday', time: '10:00', className: 'Mat Pilates — Beginner', location: 'Studio Bern', isActive: true },
-];
+// CAVEMAN: demo data until Sanity connected. Bilingual so language toggle visibly works.
+const PLACEHOLDER_SCHEDULE: Record<Locale, ClassScheduleEntry[]> = {
+  en: [
+    { _id: 'p1', dayOfWeek: 'monday', time: '09:00', className: 'Mat Pilates — All Levels', location: 'Studio Bern', isActive: true },
+    { _id: 'p2', dayOfWeek: 'wednesday', time: '18:00', className: 'Reformer Pilates', location: 'Studio Bern', isActive: true },
+    { _id: 'p3', dayOfWeek: 'friday', time: '10:00', className: 'Mat Pilates — Beginner', location: 'Studio Bern', isActive: true },
+  ],
+  de: [
+    { _id: 'p1', dayOfWeek: 'monday', time: '09:00', className: 'Matten-Pilates — Alle Levels', location: 'Studio Bern', isActive: true },
+    { _id: 'p2', dayOfWeek: 'wednesday', time: '18:00', className: 'Reformer-Pilates', location: 'Studio Bern', isActive: true },
+    { _id: 'p3', dayOfWeek: 'friday', time: '10:00', className: 'Matten-Pilates — Anfänger', location: 'Studio Bern', isActive: true },
+  ],
+};
 
 export async function generateMetadata({
   params,
@@ -26,7 +34,7 @@ export default async function SchedulePage({ params }: { params: Promise<{ local
     getTranslations('schedule'),
     getSchedule(locale as Locale),
   ]);
-  const items = schedule.length > 0 ? schedule : PLACEHOLDER_SCHEDULE;
+  const items = schedule.length > 0 ? schedule : PLACEHOLDER_SCHEDULE[locale as Locale];
 
   return (
     <section className="mx-auto max-w-container px-6 py-20">

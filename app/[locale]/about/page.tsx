@@ -4,11 +4,19 @@ import { PortableText } from '@portabletext/react';
 import { getSiteSettings } from '@/sanity/lib/queries';
 import type { Locale } from '@/sanity/lib/types';
 
-const PLACEHOLDER_BIO = [
-  'Becca Rhew is a certified Pilates teacher based in Bern, Switzerland. With over a decade of practice and training, she brings warmth, precision, and a deep understanding of movement to every session.',
-  'Originally from the United States, Becca moved to Bern in 2015 and has since built a thriving practice rooted in the classical Pilates method. She works with beginners and experienced practitioners alike.',
-  'Her approach focuses on building strength from the inside out — creating a body that moves with ease, balance, and confidence.',
-];
+// CAVEMAN: demo data until Sanity connected. Bilingual so language toggle visibly works.
+const PLACEHOLDER_BIO: Record<Locale, string[]> = {
+  en: [
+    'Becca Rhew is a certified Pilates teacher based in Bern, Switzerland. With over a decade of practice and training, she brings warmth, precision, and a deep understanding of movement to every session.',
+    'Originally from the United States, Becca moved to Bern in 2015 and has since built a thriving practice rooted in the classical Pilates method. She works with beginners and experienced practitioners alike.',
+    'Her approach focuses on building strength from the inside out — creating a body that moves with ease, balance, and confidence.',
+  ],
+  de: [
+    'Becca Rhew ist zertifizierte Pilates-Lehrerin in Bern, Schweiz. Mit über einem Jahrzehnt Praxis und Ausbildung bringt sie Wärme, Präzision und ein tiefes Verständnis für Bewegung in jede Stunde.',
+    'Ursprünglich aus den USA, zog Becca 2015 nach Bern und hat seither eine blühende Praxis aufgebaut, die in der klassischen Pilates-Methode verwurzelt ist. Sie arbeitet mit Anfängern wie auch Fortgeschrittenen.',
+    'Ihr Ansatz konzentriert sich darauf, Kraft von innen heraus aufzubauen — für einen Körper, der sich mit Leichtigkeit, Balance und Selbstvertrauen bewegt.',
+  ],
+};
 
 export async function generateMetadata({
   params,
@@ -37,7 +45,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           {hasBio ? (
             <PortableText value={settings!.bioText as Parameters<typeof PortableText>[0]['value']} />
           ) : (
-            PLACEHOLDER_BIO.map((para, i) => (
+            PLACEHOLDER_BIO[locale as Locale].map((para, i) => (
               <p key={i} className="mb-4 leading-relaxed text-text-primary">
                 {para}
               </p>

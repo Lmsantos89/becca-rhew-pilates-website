@@ -4,26 +4,49 @@ import { getOfferings } from '@/sanity/lib/queries';
 import OfferingCard from '@/components/OfferingCard';
 import type { Locale, Offering } from '@/sanity/lib/types';
 
-const PLACEHOLDER_OFFERINGS: Offering[] = [
-  {
-    _id: 'placeholder-1',
-    title: 'Mat Pilates',
-    description:
-      'Build core strength and flexibility on the mat. Accessible and effective for all levels.',
-  },
-  {
-    _id: 'placeholder-2',
-    title: 'Reformer Pilates',
-    description:
-      'Precision training on the reformer machine. Challenge your body in new and targeted ways.',
-  },
-  {
-    _id: 'placeholder-3',
-    title: 'Private Sessions',
-    description:
-      'One-on-one sessions tailored entirely to your goals, needs, and schedule.',
-  },
-];
+// CAVEMAN: demo data until Sanity connected. Bilingual so language toggle visibly works.
+const PLACEHOLDER_OFFERINGS: Record<Locale, Offering[]> = {
+  en: [
+    {
+      _id: 'placeholder-1',
+      title: 'Mat Pilates',
+      description:
+        'Build core strength and flexibility on the mat. Accessible and effective for all levels.',
+    },
+    {
+      _id: 'placeholder-2',
+      title: 'Reformer Pilates',
+      description:
+        'Precision training on the reformer machine. Challenge your body in new and targeted ways.',
+    },
+    {
+      _id: 'placeholder-3',
+      title: 'Private Sessions',
+      description:
+        'One-on-one sessions tailored entirely to your goals, needs, and schedule.',
+    },
+  ],
+  de: [
+    {
+      _id: 'placeholder-1',
+      title: 'Matten-Pilates',
+      description:
+        'Stärke deine Körpermitte und Beweglichkeit auf der Matte. Zugänglich und wirksam für alle Levels.',
+    },
+    {
+      _id: 'placeholder-2',
+      title: 'Reformer-Pilates',
+      description:
+        'Präzises Training am Reformer. Fordere deinen Körper auf neue und gezielte Weise.',
+    },
+    {
+      _id: 'placeholder-3',
+      title: 'Einzelstunden',
+      description:
+        'Einzelsitzungen, ganz auf deine Ziele, Bedürfnisse und deinen Zeitplan abgestimmt.',
+    },
+  ],
+};
 
 export async function generateMetadata({
   params,
@@ -41,7 +64,7 @@ export default async function OfferingsPage({ params }: { params: Promise<{ loca
     getTranslations('offerings'),
     getOfferings(locale as Locale),
   ]);
-  const items = offerings.length > 0 ? offerings : PLACEHOLDER_OFFERINGS;
+  const items = offerings.length > 0 ? offerings : PLACEHOLDER_OFFERINGS[locale as Locale];
 
   return (
     <section className="mx-auto max-w-container px-6 py-20">
