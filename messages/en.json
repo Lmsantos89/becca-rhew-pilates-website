@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "offerings": "Offerings",
+    "schedule": "Schedule",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroSubtitle": "Pilates Teacher · Bern, Switzerland",
+    "cta": "View Offerings"
+  },
+  "offerings": {
+    "title": "Offerings",
+    "subtitle": "Choose the format that works best for you"
+  },
+  "schedule": {
+    "title": "Weekly Schedule",
+    "subtitle": "Join a class — all levels welcome",
+    "noClasses": "No classes scheduled at the moment. Check back soon.",
+    "location": "Location"
+  },
+  "about": {
+    "title": "About Becca"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Questions, bookings, or just a hello — reach out anytime.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can I help you?",
+    "submit": "Send Message",
+    "sending": "Sending…",
+    "success": "Message sent! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again or email me directly.",
+    "location": "Bern, Switzerland",
+    "instagramLabel": "Instagram"
+  },
+  "footer": {
+    "copyright": "© {year} Becca Rhew. All rights reserved."
+  },
+  "meta": {
+    "homeTitle": "Becca Rhew · Pilates Bern",
+    "homeDescription": "Pilates classes in Bern, Switzerland with Becca Rhew. Mat, Reformer, and private sessions.",
+    "offeringsTitle": "Offerings · Becca Rhew Pilates",
+    "offeringsDescription": "Mat Pilates, Reformer Pilates, and private sessions in Bern, Switzerland.",
+    "scheduleTitle": "Schedule · Becca Rhew Pilates",
+    "scheduleDescription": "Weekly Pilates class schedule in Bern, Switzerland.",
+    "aboutTitle": "About · Becca Rhew Pilates",
+    "aboutDescription": "Learn about Becca Rhew, certified Pilates teacher based in Bern, Switzerland.",
+    "contactTitle": "Contact · Becca Rhew Pilates",
+    "contactDescription": "Get in touch with Becca Rhew for class bookings and inquiries."
+  }
+}

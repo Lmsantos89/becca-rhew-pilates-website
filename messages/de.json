@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "offerings": "Angebote",
+    "schedule": "Stundenplan",
+    "about": "Über mich",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "heroSubtitle": "Pilates-Lehrerin · Bern, Schweiz",
+    "cta": "Angebote ansehen"
+  },
+  "offerings": {
+    "title": "Angebote",
+    "subtitle": "Wähle das Format, das am besten zu dir passt"
+  },
+  "schedule": {
+    "title": "Wochenplan",
+    "subtitle": "Komm in eine Stunde — alle Levels willkommen",
+    "noClasses": "Derzeit keine Stunden geplant. Schau bald wieder vorbei.",
+    "location": "Ort"
+  },
+  "about": {
+    "title": "Über Becca"
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "subtitle": "Fragen, Buchungen oder einfach Hallo — melde dich jederzeit.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Dein Name",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "deine@email.com",
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Wie kann ich dir helfen?",
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "success": "Nachricht gesendet! Ich melde mich bald.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreibe mir direkt.",
+    "location": "Bern, Schweiz",
+    "instagramLabel": "Instagram"
+  },
+  "footer": {
+    "copyright": "© {year} Becca Rhew. Alle Rechte vorbehalten."
+  },
+  "meta": {
+    "homeTitle": "Becca Rhew · Pilates Bern",
+    "homeDescription": "Pilates-Kurse in Bern, Schweiz mit Becca Rhew. Matte, Reformer und Einzelstunden.",
+    "offeringsTitle": "Angebote · Becca Rhew Pilates",
+    "offeringsDescription": "Matten-Pilates, Reformer-Pilates und Einzelstunden in Bern.",
+    "scheduleTitle": "Stundenplan · Becca Rhew Pilates",
+    "scheduleDescription": "Wöchentlicher Pilates-Stundenplan in Bern, Schweiz.",
+    "aboutTitle": "Über mich · Becca Rhew Pilates",
+    "aboutDescription": "Lerne Becca Rhew kennen, zertifizierte Pilates-Lehrerin in Bern.",
+    "contactTitle": "Kontakt · Becca Rhew Pilates",
+    "contactDescription": "Kontaktiere Becca Rhew für Buchungen und Anfragen."
+  }
+}
