@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
-  title: 'Becca Rhew Pilates',
-  description: 'Pilates classes in Bern, Switzerland',
+  title: 'Vitality Pilates',
+  description: 'Mat, Reformer and Private Pilates training in the Bern area.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

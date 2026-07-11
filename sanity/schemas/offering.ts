@@ -9,6 +9,7 @@ export const offering = defineType({
     defineField({ name: 'title_de', title: 'Title (DE)', type: 'string', validation: r => r.required() }),
     defineField({ name: 'description_en', title: 'Description (EN)', type: 'text', validation: r => r.required() }),
     defineField({ name: 'description_de', title: 'Description (DE)', type: 'text', validation: r => r.required() }),
+    defineField({ name: 'linkUrl', title: 'Link URL', type: 'url' }),
     defineField({
       name: 'image',
       title: 'Image',

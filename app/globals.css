@@ -3,14 +3,24 @@
 @tailwind utilities;
 
 @layer base {
-  /* CAVEMAN: always reserve scrollbar space so page width never jumps between pages */
+  /* CAVEMAN: reserve scrollbar space so width never jumps */
   html {
     scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
   body {
-    @apply font-body text-text-primary bg-white;
+    @apply font-body text-ink bg-white;
   }
   h1, h2, h3, h4 {
     @apply font-heading;
+  }
+  /* CAVEMAN: offset sticky navbar when jumping to a section */
+  section[id] {
+    scroll-margin-top: 5rem;
   }
 }

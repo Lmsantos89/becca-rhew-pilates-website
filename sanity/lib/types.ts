@@ -14,6 +14,7 @@ export interface Offering {
   _id: string;
   title: string;
   description: string;
+  linkUrl?: string;
   image?: SanityImage;
 }
 
@@ -26,16 +27,34 @@ export interface ClassScheduleEntry {
   dayOfWeek: DayOfWeek;
   time: string;
   className: string;
-  location?: string;
+  language: string;
+  locationName?: string;
+  locationCity?: string;
   isActive: boolean;
+}
+
+export interface Certification {
+  name: string;
+  year: string;
+}
+
+export interface Testimonial {
+  _id: string;
+  author: string;
+  quote: string;
 }
 
 export interface SiteSettings {
   siteName: string;
   tagline: string;
+  heroHeadline: string;
+  heroSubheading: string;
   contactEmail: string;
+  phone?: string;
   instagramUrl?: string;
   heroImage?: SanityImage;
   bioImage?: SanityImage;
   bioText: unknown[];
+  approachText: string;
+  certifications: Certification[];
 }

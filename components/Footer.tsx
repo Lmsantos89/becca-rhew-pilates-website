@@ -6,14 +6,14 @@ export default async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-beige py-8">
+    <footer className="border-t border-mint py-8">
       <div className="mx-auto flex max-w-container flex-col items-center gap-3 px-6">
         <a
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="text-muted transition-colors hover:text-accent"
+          className="text-muted transition-colors hover:text-teal"
         >
           <IconBrandInstagram size={22} />
         </a>

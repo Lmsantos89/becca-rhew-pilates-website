@@ -1,57 +1,68 @@
 {
+  "hero": {
+    "headline": "Movement that meets you where you are in life",
+    "subheading": "Mat, Reformer and Private Pilates training in the Bern area."
+  },
   "nav": {
     "home": "Home",
-    "offerings": "Offerings",
+    "experiences": "Pilates Experiences",
     "schedule": "Schedule",
-    "about": "About",
+    "about": "About Me",
     "contact": "Contact"
   },
-  "home": {
-    "heroSubtitle": "Pilates Teacher · Bern, Switzerland",
-    "cta": "View Offerings"
-  },
-  "offerings": {
-    "title": "Offerings",
-    "subtitle": "Choose the format that works best for you"
-  },
   "schedule": {
-    "title": "Weekly Schedule",
-    "subtitle": "Join a class — all levels welcome",
-    "noClasses": "No classes scheduled at the moment. Check back soon.",
-    "location": "Location"
+    "title": "Class Schedule",
+    "colDay": "Day",
+    "colTime": "Time",
+    "colLanguage": "Language",
+    "colClass": "Class & Location",
+    "quote": "Change happens through movement and movement heals",
+    "quoteAuthor": "Joseph Pilates",
+    "noClasses": "No classes scheduled at the moment. Check back soon."
+  },
+  "days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
   },
   "about": {
-    "title": "About Becca"
+    "title": "Meet Becca",
+    "certificationsTitle": "Certifications",
+    "approach": "My approach: science-based, movement-driven, heart-led"
   },
   "contact": {
-    "title": "Get in Touch",
+    "title": "Get in touch",
     "subtitle": "Questions, bookings, or just a hello — reach out anytime.",
+    "phoneLabel": "Phone / WhatsApp",
+    "emailLabel": "Email",
     "nameLabel": "Name",
     "namePlaceholder": "Your name",
-    "emailLabel": "Email",
     "emailPlaceholder": "your@email.com",
     "messageLabel": "Message",
     "messagePlaceholder": "How can I help you?",
     "submit": "Send Message",
     "sending": "Sending…",
     "success": "Message sent! I'll get back to you soon.",
-    "error": "Something went wrong. Please try again or email me directly.",
-    "location": "Bern, Switzerland",
-    "instagramLabel": "Instagram"
+    "error": "Something went wrong. Please try again or email me directly."
+  },
+  "experiences": {
+    "title": "Pilates Experiences",
+    "reformerLinkLabel": "Pilates Bern studio"
+  },
+  "testimonials": {
+    "title": "What My Clients Say",
+    "previous": "Previous testimonial",
+    "next": "Next testimonial"
   },
   "footer": {
-    "copyright": "© {year} Becca Rhew. All rights reserved."
+    "copyright": "© {year} Vitality Pilates. All rights reserved."
   },
   "meta": {
-    "homeTitle": "Becca Rhew · Pilates Bern",
-    "homeDescription": "Pilates classes in Bern, Switzerland with Becca Rhew. Mat, Reformer, and private sessions.",
-    "offeringsTitle": "Offerings · Becca Rhew Pilates",
-    "offeringsDescription": "Mat Pilates, Reformer Pilates, and private sessions in Bern, Switzerland.",
-    "scheduleTitle": "Schedule · Becca Rhew Pilates",
-    "scheduleDescription": "Weekly Pilates class schedule in Bern, Switzerland.",
-    "aboutTitle": "About · Becca Rhew Pilates",
-    "aboutDescription": "Learn about Becca Rhew, certified Pilates teacher based in Bern, Switzerland.",
-    "contactTitle": "Contact · Becca Rhew Pilates",
-    "contactDescription": "Get in touch with Becca Rhew for class bookings and inquiries."
+    "homeTitle": "Vitality Pilates · Bern",
+    "homeDescription": "Mat, Reformer and Private Pilates training in the Bern area with Becca Rhew."
   }
 }

@@ -10,6 +10,27 @@ export const siteSettings = defineType({
     defineField({ name: 'siteName', title: 'Site Name', type: 'string', validation: r => r.required() }),
     defineField({ name: 'tagline_en', title: 'Tagline (EN)', type: 'string' }),
     defineField({ name: 'tagline_de', title: 'Tagline (DE)', type: 'string' }),
+    defineField({ name: 'heroHeadline_en', title: 'Hero Headline (EN)', type: 'string' }),
+    defineField({ name: 'heroHeadline_de', title: 'Hero Headline (DE)', type: 'string' }),
+    defineField({ name: 'heroSubheading_en', title: 'Hero Subheading (EN)', type: 'string' }),
+    defineField({ name: 'heroSubheading_de', title: 'Hero Subheading (DE)', type: 'string' }),
+    defineField({ name: 'phone', title: 'Phone / WhatsApp', type: 'string' }),
+    defineField({ name: 'approachText_en', title: 'Approach Text (EN)', type: 'string' }),
+    defineField({ name: 'approachText_de', title: 'Approach Text (DE)', type: 'string' }),
+    defineField({
+      name: 'certifications',
+      title: 'Certifications',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'name', title: 'Name', type: 'string' }),
+            defineField({ name: 'year', title: 'Year', type: 'string' }),
+          ],
+        },
+      ],
+    }),
     defineField({ name: 'contactEmail', title: 'Contact Email', type: 'string' }),
     defineField({ name: 'instagramUrl', title: 'Instagram URL', type: 'url' }),
     defineField({

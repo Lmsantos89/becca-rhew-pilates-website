@@ -5,7 +5,7 @@ import { useState } from 'react';
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 const INPUT_CLASS =
-  'rounded border border-[#E0DBD5] bg-white px-4 py-3 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent';
+  'rounded border border-[#E0DBD5] bg-white px-4 py-3 text-sm outline-none focus:border-teal focus:ring-1 focus:ring-teal';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
@@ -54,11 +54,11 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="bg-accent px-8 py-3 text-sm font-medium uppercase tracking-widest text-white transition-opacity hover:opacity-80 disabled:opacity-50"
+        className="bg-teal px-8 py-3 text-sm font-medium uppercase tracking-widest text-white transition-opacity hover:opacity-80 disabled:opacity-50"
       >
         {status === 'sending' ? t('sending') : t('submit')}
       </button>
-      {status === 'success' && <p className="text-sm text-accent">{t('success')}</p>}
+      {status === 'success' && <p className="text-sm text-teal">{t('success')}</p>}
       {status === 'error' && <p className="text-sm text-red-600">{t('error')}</p>}
     </form>
   );

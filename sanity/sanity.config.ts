@@ -17,8 +17,9 @@ export default defineConfig({
             .id('siteSettings')
             .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
           S.divider(),
-          S.documentTypeListItem('offering').title('Offerings'),
+          S.documentTypeListItem('offering').title('Pilates Experiences'),
           S.documentTypeListItem('classSchedule').title('Schedule'),
+          S.documentTypeListItem('testimonial').title('Testimonials'),
         ]),
     }),
     visionTool(),

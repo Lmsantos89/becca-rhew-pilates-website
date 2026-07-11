@@ -19,7 +19,15 @@ export const classSchedule = defineType({
     defineField({ name: 'time', title: 'Time (HH:MM)', type: 'string', validation: r => r.required() }),
     defineField({ name: 'className_en', title: 'Class Name (EN)', type: 'string', validation: r => r.required() }),
     defineField({ name: 'className_de', title: 'Class Name (DE)', type: 'string', validation: r => r.required() }),
-    defineField({ name: 'location', title: 'Location', type: 'string' }),
+    defineField({
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      options: { list: ['Deutsch', 'Deutsch/Eng', 'English'] },
+      validation: r => r.required(),
+    }),
+    defineField({ name: 'locationName', title: 'Location Name', type: 'string' }),
+    defineField({ name: 'locationCity', title: 'Location City', type: 'string' }),
     defineField({ name: 'isActive', title: 'Active', type: 'boolean', initialValue: true }),
   ],
 });

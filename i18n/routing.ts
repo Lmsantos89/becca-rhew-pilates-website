@@ -5,9 +5,5 @@ export const routing = defineRouting({
   defaultLocale: 'en',
   pathnames: {
     '/': '/',
-    '/offerings': { en: '/offerings', de: '/angebote' },
-    '/schedule': { en: '/schedule', de: '/stundenplan' },
-    '/about': { en: '/about', de: '/ueber-mich' },
-    '/contact': { en: '/contact', de: '/kontakt' },
   },
 });
