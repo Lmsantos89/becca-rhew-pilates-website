@@ -1,7 +1,10 @@
 {
   "hero": {
     "headline": "Bewegung, die dich dort abholt, wo du im Leben stehst",
-    "subheading": "Matten-, Reformer- und Privat-Pilates in der Region Bern."
+    "subheading": "Matten-, Reformer- und Privat-Pilates in der Region Bern.",
+    "eyebrow": "Pilates · Bern",
+    "viewSchedule": "Kursplan ansehen",
+    "getInTouch": "Kontakt aufnehmen"
   },
   "nav": {
     "home": "Start",

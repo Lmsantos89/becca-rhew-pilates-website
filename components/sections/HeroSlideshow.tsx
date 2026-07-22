@@ -10,6 +10,8 @@ interface Slide {
 interface Props {
   slides: Slide[];
   intervalMs?: number;
+  rounded?: boolean;
+  showDots?: boolean;
 }
 
 const DEFAULT_INTERVAL = 5000;
@@ -48,7 +50,12 @@ function SlideDots({
   );
 }
 
-export default function HeroSlideshow({ slides, intervalMs = DEFAULT_INTERVAL }: Props) {
+export default function HeroSlideshow({
+  slides,
+  intervalMs = DEFAULT_INTERVAL,
+  rounded = true,
+  showDots = true,
+}: Props) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -61,7 +68,7 @@ export default function HeroSlideshow({ slides, intervalMs = DEFAULT_INTERVAL }:
   }, [slides.length, intervalMs]);
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-t-[999px]">
+    <div className={`relative h-full w-full overflow-hidden ${rounded ? 'rounded-t-[999px]' : ''}`}>
       {slides.map((slide, position) => (
         <div
           key={slide.alt}
@@ -86,7 +93,7 @@ export default function HeroSlideshow({ slides, intervalMs = DEFAULT_INTERVAL }:
           )}
         </div>
       ))}
-      <SlideDots slides={slides} index={index} onSelect={setIndex} />
+      {showDots && <SlideDots slides={slides} index={index} onSelect={setIndex} />}
     </div>
   );
 }
