@@ -22,38 +22,35 @@ const PLACEHOLDER_SCHEDULE: Record<Locale, ClassScheduleEntry[]> = {
 
 type Translator = Awaited<ReturnType<typeof getTranslations>>;
 
-// CAVEMAN: table split out so Schedule stays under 40 lines
-function ScheduleTable({ rows, t, days }: { rows: ClassScheduleEntry[]; t: Translator; days: Translator }) {
+// CAVEMAN: day+time badge left, class+location right
+function ScheduleCard({ row, days }: { row: ClassScheduleEntry; days: Translator }) {
   return (
-    <div className="mt-8 overflow-x-auto">
-      <table className="w-full border-collapse text-left text-sm">
-        <thead>
-          <tr className="border-b border-ink/20 text-ink">
-            <th className="py-3 pr-4 font-semibold">{t('colDay')}</th>
-            <th className="py-3 pr-4 font-semibold">{t('colTime')}</th>
-            <th className="py-3 pr-4 font-semibold">{t('colLanguage')}</th>
-            <th className="py-3 font-semibold">{t('colClass')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row._id} className="border-b border-ink/10 text-ink/80">
-              <td className="py-3 pr-4">{days(row.dayOfWeek)}</td>
-              <td className="py-3 pr-4">{row.time}</td>
-              <td className="py-3 pr-4">{row.language}</td>
-              <td className="py-3">
-                {row.className}
-                {row.locationName && (
-                  <span className="block text-ink/60">
-                    {row.locationName}
-                    {row.locationCity ? `, ${row.locationCity}` : ''}
-                  </span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <article className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
+      <div className="flex w-20 flex-shrink-0 flex-col items-center rounded-lg bg-mint py-2">
+        <span className="text-xs uppercase tracking-widest text-ink/60">{days(row.dayOfWeek)}</span>
+        <span className="font-heading text-lg font-semibold text-steel">{row.time}</span>
+      </div>
+      <div className="pt-1">
+        <h3 className="font-heading text-base font-semibold text-ink">{row.className}</h3>
+        {row.language && <p className="mt-1 text-sm text-ink/70">{row.language}</p>}
+        {row.locationName && (
+          <p className="text-sm text-ink/60">
+            {row.locationName}
+            {row.locationCity ? `, ${row.locationCity}` : ''}
+          </p>
+        )}
+      </div>
+    </article>
+  );
+}
+
+// CAVEMAN: card grid split out so Schedule stays under 40 lines
+function ScheduleCards({ rows, days }: { rows: ClassScheduleEntry[]; days: Translator }) {
+  return (
+    <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {rows.map((row) => (
+        <ScheduleCard key={row._id} row={row} days={days} />
+      ))}
     </div>
   );
 }
@@ -67,13 +64,13 @@ export default async function Schedule({ locale }: { locale: Locale }) {
   const rows = schedule.length > 0 ? schedule : PLACEHOLDER_SCHEDULE[locale];
 
   return (
-    <section id="schedule" className="bg-mint py-24">
+    <section id="schedule" className="bg-sand py-24">
       <div className="mx-auto max-w-container px-6">
         <h2 className="font-heading text-3xl font-semibold text-ink">{t('title')}</h2>
         {rows.length === 0 ? (
           <p className="mt-8 text-ink/70">{t('noClasses')}</p>
         ) : (
-          <ScheduleTable rows={rows} t={t} days={days} />
+          <ScheduleCards rows={rows} days={days} />
         )}
         <blockquote className="mt-12 text-center font-heading text-xl italic text-ink">
           “{t('quote')}”
