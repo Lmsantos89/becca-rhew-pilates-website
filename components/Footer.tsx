@@ -13,7 +13,7 @@ export default async function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="text-muted transition-colors hover:text-teal"
+          className="text-muted transition-colors hover:text-steel"
         >
           <IconBrandInstagram size={22} />
         </a>
