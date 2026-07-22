@@ -10,18 +10,20 @@ const PLACEHOLDER_EXPERIENCES: Record<Locale, Offering[]> = {
       _id: 'mat',
       title: 'Mat',
       description:
-        'Low-impact, full-body mat classes using props like Therabands, Pilates balls and rings to build strength, mobility and control.',
+        "Mat Pilates offers a low-impact, full-body workout for all body types and abilities. We use props like Therabands, Pilates balls and Pilates Rings to enhance our movement. These classes are for all levels and movements can be modified to meet your body where it's at on any given day.",
     },
     {
       _id: 'reformer',
       title: 'Reformer',
-      description: 'Reformer classes at the Pilates Bern studio in the old town of Bern.',
+      description:
+        'In the heart of old town Bern, Pilates Bern studio offers reformer classes for all levels. Reformer classes use the resistance and support of the reformer machine to guide you through a full-body workout that builds strength, improves flexibility, and enhances body awareness. Each class is designed to challenge and support you in equal measure — leaving you feeling stronger, more mobile, and deeply connected to your body.',
       linkUrl: '#',
     },
     {
       _id: 'private',
       title: 'Private Training',
-      description: 'One-on-one sessions tailored to your goals. Contact me for information.',
+      description:
+        'One-on-one sessions tailored to your specific goals and needs. Please get in touch for more information.',
     },
   ],
   de: [
@@ -29,19 +31,20 @@ const PLACEHOLDER_EXPERIENCES: Record<Locale, Offering[]> = {
       _id: 'mat',
       title: 'Matte',
       description:
-        'Sanfte Ganzkörper-Mattenkurse mit Hilfsmitteln wie Therabändern, Pilates-Bällen und -Ringen, um Kraft, Beweglichkeit und Kontrolle aufzubauen.',
+        'Matten-Pilates bietet ein gelenkschonendes Ganzkörpertraining für alle Körpertypen und Fähigkeiten. Wir nutzen Hilfsmittel wie Therabänder, Pilates-Bälle und Pilates-Ringe, um unsere Bewegungen zu unterstützen. Diese Kurse eignen sich für alle Niveaus, und die Übungen lassen sich anpassen, um deinen Körper dort abzuholen, wo er an jedem Tag gerade steht.',
     },
     {
       _id: 'reformer',
       title: 'Reformer',
-      description: 'Reformer-Kurse im Pilates Bern Studio in der Berner Altstadt.',
+      description:
+        'Im Herzen der Berner Altstadt bietet das Studio Pilates Bern Reformer-Kurse für alle Niveaus. Reformer-Kurse nutzen den Widerstand und die Unterstützung des Reformer-Geräts, um dich durch ein Ganzkörpertraining zu führen, das Kraft aufbaut, die Beweglichkeit verbessert und das Körperbewusstsein schärft. Jede Stunde fordert und unterstützt dich zu gleichen Teilen — und lässt dich stärker, beweglicher und tiefer mit deinem Körper verbunden zurück.',
       linkUrl: '#',
     },
     {
       _id: 'private',
       title: 'Privattraining',
       description:
-        'Einzelstunden, ganz auf deine Ziele abgestimmt. Kontaktiere mich für weitere Informationen.',
+        'Einzelstunden, ganz auf deine Ziele und Bedürfnisse abgestimmt. Bitte kontaktiere mich für weitere Informationen.',
     },
   ],
 };
@@ -74,7 +77,7 @@ function ExperienceList({ t, items }: { t: Translator; items: Offering[] }) {
                 href={item.linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block text-sm font-medium text-teal underline underline-offset-4 hover:text-steel"
+                className="mt-2 inline-block text-sm font-medium text-steel underline underline-offset-4 hover:text-ink"
               >
                 {t('reformerLinkLabel')} →
               </a>
