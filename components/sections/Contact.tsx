@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { IconBrandWhatsapp, IconMail, IconPhone } from '@tabler/icons-react';
+import { IconMail, IconPhone } from '@tabler/icons-react';
 import { getSiteSettings } from '@/sanity/lib/queries';
 import ContactForm from '@/components/ContactForm';
 import type { Locale } from '@/sanity/lib/types';
@@ -10,39 +10,24 @@ const PLACEHOLDER_EMAIL = 'vitalitypilatesbern@gmail.com';
 
 type Translator = Awaited<ReturnType<typeof getTranslations>>;
 
-function toWhatsappUrl(phone: string): string {
-  return `https://wa.me/${phone.replace(/\D/g, '')}`;
-}
-
 // CAVEMAN: aside pulled out so Contact stays under 40 lines
 function ContactInfo({ t, phone, email }: { t: Translator; phone: string; email: string }) {
   return (
     <aside className="flex flex-col gap-6 text-ink">
       <div className="flex items-start gap-3">
-        <IconPhone size={18} className="mt-1 flex-shrink-0 text-teal" />
+        <IconPhone size={18} className="mt-1 flex-shrink-0 text-steel" />
         <div>
           <p className="text-xs uppercase tracking-widest text-muted">{t('phoneLabel')}</p>
-          <a href={`tel:${phone.replace(/\s/g, '')}`} className="transition-colors hover:text-teal">
+          <a href={`tel:${phone.replace(/\s/g, '')}`} className="transition-colors hover:text-steel">
             {phone}
           </a>
         </div>
       </div>
       <div className="flex items-start gap-3">
-        <IconBrandWhatsapp size={18} className="mt-1 flex-shrink-0 text-teal" />
-        <a
-          href={toWhatsappUrl(phone)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="transition-colors hover:text-teal"
-        >
-          WhatsApp
-        </a>
-      </div>
-      <div className="flex items-start gap-3">
-        <IconMail size={18} className="mt-1 flex-shrink-0 text-teal" />
+        <IconMail size={18} className="mt-1 flex-shrink-0 text-steel" />
         <div>
           <p className="text-xs uppercase tracking-widest text-muted">{t('emailLabel')}</p>
-          <a href={`mailto:${email}`} className="transition-colors hover:text-teal">
+          <a href={`mailto:${email}`} className="transition-colors hover:text-steel">
             {email}
           </a>
         </div>
