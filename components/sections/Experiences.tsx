@@ -17,7 +17,7 @@ const PLACEHOLDER_EXPERIENCES: Record<Locale, Offering[]> = {
       title: 'Reformer',
       description:
         'In the heart of old town Bern, Pilates Bern studio offers reformer classes for all levels. Reformer classes use the resistance and support of the reformer machine to guide you through a full-body workout that builds strength, improves flexibility, and enhances body awareness. Each class is designed to challenge and support you in equal measure — leaving you feeling stronger, more mobile, and deeply connected to your body.',
-      linkUrl: '#',
+      linkUrl: 'https://www.pilates-bern.ch/en/',
     },
     {
       _id: 'private',
@@ -37,8 +37,8 @@ const PLACEHOLDER_EXPERIENCES: Record<Locale, Offering[]> = {
       _id: 'reformer',
       title: 'Reformer',
       description:
-        'Im Herzen der Berner Altstadt bietet das Studio Pilates Bern Reformer-Kurse für alle Niveaus. Reformer-Kurse nutzen den Widerstand und die Unterstützung des Reformer-Geräts, um dich durch ein Ganzkörpertraining zu führen, das Kraft aufbaut, die Beweglichkeit verbessert und das Körperbewusstsein schärft. Jede Stunde fordert und unterstützt dich zu gleichen Teilen — und lässt dich stärker, beweglicher und tiefer mit deinem Körper verbunden zurück.',
-      linkUrl: '#',
+        'Im Herzen der Berner Altstadt bietet das Pilates Bern Studio Reformer-Kurse für alle Niveaus. Reformer-Kurse nutzen den Widerstand und die Unterstützung des Reformer-Geräts, um dich durch ein Ganzkörpertraining zu führen, das Kraft aufbaut, die Beweglichkeit verbessert und das Körperbewusstsein schärft. Jede Stunde fordert und unterstützt dich zu gleichen Teilen — und lässt dich stärker, beweglicher und tiefer mit deinem Körper verbunden zurück.',
+      linkUrl: 'https://www.pilates-bern.ch/de/',
     },
     {
       _id: 'private',
@@ -63,6 +63,28 @@ function ExperiencePhotos() {
   );
 }
 
+// CAVEMAN: linkify studio phrase inside paragraph, plain text when no link
+function ExperienceDescription({ description, phrase, url }: { description: string; phrase: string; url?: string }) {
+  const phraseStart = url ? description.indexOf(phrase) : -1;
+  if (phraseStart === -1) {
+    return <p className="mt-2 leading-relaxed text-ink/80">{description}</p>;
+  }
+  return (
+    <p className="mt-2 leading-relaxed text-ink/80">
+      {description.slice(0, phraseStart)}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-medium text-steel underline underline-offset-4 hover:text-ink"
+      >
+        {phrase}
+      </a>
+      {description.slice(phraseStart + phrase.length)}
+    </p>
+  );
+}
+
 function ExperienceList({ t, items }: { t: Translator; items: Offering[] }) {
   return (
     <div>
@@ -71,17 +93,11 @@ function ExperienceList({ t, items }: { t: Translator; items: Offering[] }) {
         {items.map((item) => (
           <div key={item._id}>
             <h3 className="font-heading text-xl font-semibold text-steel">{item.title}</h3>
-            <p className="mt-2 leading-relaxed text-ink/80">{item.description}</p>
-            {item.linkUrl && (
-              <a
-                href={item.linkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-block text-sm font-medium text-steel underline underline-offset-4 hover:text-ink"
-              >
-                {t('reformerLinkLabel')} →
-              </a>
-            )}
+            <ExperienceDescription
+              description={item.description}
+              phrase={t('reformerLinkLabel')}
+              url={item.linkUrl}
+            />
           </div>
         ))}
       </div>
