@@ -72,7 +72,7 @@ function ApproachArc({ approach }: { approach: string }) {
         <defs>
           <path id="approachArc" d="M 10 184 A 174 174 0 0 1 358 184" fill="none" />
         </defs>
-        <text className="fill-steel font-heading text-[15px]">
+        <text className="fill-steel font-heading text-[18px]">
           <textPath href="#approachArc" startOffset="50%" textAnchor="middle">
             {approach}
           </textPath>
