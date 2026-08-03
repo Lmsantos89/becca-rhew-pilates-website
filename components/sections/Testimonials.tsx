@@ -10,19 +10,19 @@ const PLACEHOLDER_TESTIMONIALS: Record<Locale, Testimonial[]> = {
       _id: 't1',
       author: 'Anastasia A.',
       quote:
-        'Becca creates a warm, welcoming space. Her classes are challenging yet accessible, and I always leave feeling stronger and more grounded.',
+        "Becca's classes are the highlight of my week! I've noticed so much progress in my strength and flexibility thanks to her expert guidance. Her careful attention to details ensures I'm always performing exercises safely and correctly. Her anatomical knowledge helps me to get the most out of every movement. Becca has such a warm and patient way of teaching that makes everyone feel comfortable, no matter their fitness level. I always leave Becca's class feeling stronger and happier!",
     },
     {
       _id: 't2',
       author: 'Cristina A.',
       quote:
-        'Her attention to detail and precise cues have transformed how I move. Becca truly sees each person in the room.',
+        'Becca is an exceptional teacher. She is always attentive to the needs of each student and adapts the exercises so that everyone can progress at their own pace. Her Pilates classes are dynamic, motivating, and full of positive energy. You can truly see the passion she puts into her work and the care with which she supports each of her students.',
     },
     {
       _id: 't3',
       author: 'Mari S.',
       quote:
-        'More than a class — it is a community. Becca brings knowledge, care and genuine warmth to every session.',
+        "I love Becca's classes! She puts a great deal of thought into making the exercises just the right amount of challenge for a wide range of people. As an older client with knee and back issues, I appreciate that Becca gives me modifications so that I can participate safely. She also gives us helpful hands-on adjustments to help us practice safely. No class is the same, so I always feel like I am learning something new. Best of all, Becca has created a caring community among her students. We often stay after class to chat, she celebrates our birthdays, and she even organized a class trip to see the art show of one of our members. All this plus she plays great music! I highly recommend Becca!",
     },
   ],
   de: [
@@ -30,19 +30,19 @@ const PLACEHOLDER_TESTIMONIALS: Record<Locale, Testimonial[]> = {
       _id: 't1',
       author: 'Anastasia A.',
       quote:
-        'Becca schafft einen warmen, einladenden Raum. Ihre Kurse sind fordernd und zugleich zugänglich, und ich gehe immer gestärkt und geerdet nach Hause.',
+        'Beccas Kurse sind das Highlight meiner Woche! Dank ihrer fachkundigen Anleitung habe ich grosse Fortschritte bei Kraft und Beweglichkeit gemacht. Ihre sorgfältige Liebe zum Detail sorgt dafür, dass ich die Übungen stets sicher und korrekt ausführe. Ihr anatomisches Wissen hilft mir, das Beste aus jeder Bewegung herauszuholen. Becca unterrichtet auf so warmherzige und geduldige Weise, dass sich alle wohlfühlen — unabhängig vom Fitnesslevel. Ich verlasse Beccas Kurs immer stärker und glücklicher!',
     },
     {
       _id: 't2',
       author: 'Cristina A.',
       quote:
-        'Ihre Liebe zum Detail und ihre präzisen Anweisungen haben verändert, wie ich mich bewege. Becca sieht wirklich jede Person im Raum.',
+        'Becca ist eine aussergewöhnliche Lehrerin. Sie geht stets auf die Bedürfnisse jeder einzelnen Person ein und passt die Übungen so an, dass alle in ihrem eigenen Tempo Fortschritte machen können. Ihre Pilates-Stunden sind dynamisch, motivierend und voller positiver Energie. Man sieht wirklich, mit wie viel Leidenschaft sie ihre Arbeit macht und mit welcher Sorgfalt sie jede und jeden unterstützt.',
     },
     {
       _id: 't3',
       author: 'Mari S.',
       quote:
-        'Mehr als ein Kurs — eine Gemeinschaft. Becca bringt Wissen, Fürsorge und echte Herzlichkeit in jede Stunde.',
+        'Ich liebe Beccas Kurse! Sie überlegt sich sehr genau, wie sie die Übungen für ganz unterschiedliche Menschen genau richtig fordernd gestaltet. Als ältere Teilnehmerin mit Knie- und Rückenproblemen schätze ich es, dass Becca mir Anpassungen gibt, damit ich sicher mitmachen kann. Ausserdem gibt sie uns hilfreiche manuelle Korrekturen, damit wir sicher üben. Keine Stunde gleicht der anderen, sodass ich immer das Gefühl habe, etwas Neues zu lernen. Das Beste von allem: Becca hat unter ihren Teilnehmenden eine fürsorgliche Gemeinschaft geschaffen. Wir bleiben oft nach dem Kurs zum Plaudern, sie feiert unsere Geburtstage und hat sogar einen Ausflug zur Kunstausstellung eines unserer Mitglieder organisiert. Und dazu spielt sie noch grossartige Musik! Ich kann Becca wärmstens empfehlen!',
     },
   ],
 };

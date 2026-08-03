@@ -8,12 +8,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        steel: { DEFAULT: '#6F9DB8', dark: '#4F7A93' },
-        mint: '#DCEBE6',
-        teal: '#5F9A8C',
-        cream: '#F7F4EF',
-        ink: '#2E3F42',
-        muted: '#6B7A7C',
+        ink: '#0D2B45',
+        steel: { DEFAULT: '#5A7D9A', dark: '#3E5A73' },
+        teal: '#8DBFB7',
+        sand: '#DCC7AA',
+        mint: '#E7F0ED',
+        cream: '#F4F6F6',
+        muted: '#6E7F8E',
       },
       fontFamily: {
         heading: ['var(--font-playfair)', 'serif'],

@@ -21,8 +21,8 @@ function NavAnchors({ activeId, t }: { activeId: string; t: Translator }) {
         <li key={key}>
           <a
             href={`#${id}`}
-            className={`text-sm transition-colors hover:text-teal ${
-              activeId === id ? 'text-teal' : 'text-ink'
+            className={`text-sm transition-colors hover:text-steel ${
+              activeId === id ? 'text-steel' : 'text-ink'
             }`}
           >
             {t(key)}
@@ -49,7 +49,7 @@ function LocaleSwitcher({
             onClick={() => onSwitch(code)}
             aria-current={locale === code ? 'true' : undefined}
             className={`transition-colors ${
-              locale === code ? 'font-bold text-teal' : 'text-muted/60 hover:text-teal'
+              locale === code ? 'font-bold text-steel' : 'text-muted/60 hover:text-steel'
             }`}
           >
             {code.toUpperCase()}
@@ -75,7 +75,7 @@ function NavActions({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        className="text-muted transition-colors hover:text-teal"
+        className="text-muted transition-colors hover:text-steel"
       >
         <IconBrandInstagram size={20} />
       </a>
@@ -142,7 +142,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-container items-center justify-between px-6 py-4">
         {/* CAVEMAN: logo image drops in here when client sends it */}
-        <a href="#home" className="font-heading text-xl font-semibold tracking-wide text-ink">
+        <a href="#home" className="font-heading text-2xl font-semibold tracking-wide text-ink md:text-3xl">
           Vitality Pilates
         </a>
 

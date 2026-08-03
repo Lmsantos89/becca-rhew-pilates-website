@@ -7,16 +7,16 @@ import type { Locale, Certification } from '@/sanity/lib/types';
 // CAVEMAN: demo bio until Sanity filled. DE machine-drafted, confirm with client
 const PLACEHOLDER_BIO: Record<Locale, string[]> = {
   en: [
-    'Becca Rhew has taught Pilates in Bern for over a decade. A certified mat and reformer instructor with pre/post-natal and osteoporosis certifications, she is an American who has lived in Bern for more than 15 years, teaching in English and Hochdeutsch.',
-    'Her approach centers on midlife clients — meeting each body where it is and building strength, mobility and confidence through mindful, science-based movement.',
+    "Becca Rhew has been teaching Pilates in the Bern area for over a decade. She's a certified mat and reformer instructor and has additional certifications in pre- and post-natal Pilates as well as osteoporosis-focused Pilates. As an American living in Bern for over 15 years, she offers classes in English as well as Hochdeutsch.",
+    'Becca is passionate about empowering clients in midlife and beyond to build and sustain a strong, healthy body while helping them understand how their bodies work and how mindful movement and exercise can keep them mobile, active, and confident throughout life.',
   ],
   de: [
-    'Becca Rhew unterrichtet seit über einem Jahrzehnt Pilates in Bern. Als zertifizierte Matten- und Reformer-Instruktorin mit Zertifizierungen für prä- und postnatales Training sowie Osteoporose ist sie Amerikanerin und lebt seit mehr als 15 Jahren in Bern, wo sie auf Englisch und Hochdeutsch unterrichtet.',
-    'Ihr Ansatz richtet sich an Kundinnen in der Lebensmitte — sie holt jeden Körper dort ab, wo er steht, und baut durch achtsame, wissenschaftlich fundierte Bewegung Kraft, Beweglichkeit und Selbstvertrauen auf.',
+    'Becca Rhew unterrichtet seit über einem Jahrzehnt Pilates in der Region Bern. Sie ist zertifizierte Matten- und Reformer-Instruktorin und verfügt über zusätzliche Zertifizierungen in prä- und postnatalem Pilates sowie in osteoporose-orientiertem Pilates. Als Amerikanerin, die seit über 15 Jahren in Bern lebt, bietet sie Kurse auf Englisch und Hochdeutsch an.',
+    'Becca setzt sich mit Leidenschaft dafür ein, Kundinnen und Kunden in der Lebensmitte und darüber hinaus zu stärken — damit sie einen kräftigen, gesunden Körper aufbauen und erhalten. Zugleich hilft sie ihnen zu verstehen, wie ihr Körper funktioniert und wie achtsame Bewegung sie ein Leben lang mobil, aktiv und selbstbewusst hält.',
   ],
 };
 
-// CAVEMAN: confirm Stott Reformer year 2026 with client, looks wrong
+// CAVEMAN: client confirmed years by sending them
 const PLACEHOLDER_CERTS: Certification[] = [
   { name: 'Polestar Pilates, Mat', year: '2013' },
   { name: 'Stott Pilates, Reformer', year: '2026' },
@@ -63,16 +63,16 @@ function Biography({
 // CAVEMAN: headshot placeholder + arced approach text split out so About stays under 40 lines
 function ApproachArc({ approach }: { approach: string }) {
   return (
-    <div className="relative flex justify-center pt-24">
+    <div className="relative flex justify-center pt-16">
       <svg
-        viewBox="0 0 300 170"
-        className="pointer-events-none absolute top-0 left-1/2 h-60 w-[28rem] -translate-x-1/2"
+        viewBox="0 0 368 368"
+        className="pointer-events-none absolute top-10 left-1/2 h-[23rem] w-[23rem] -translate-x-1/2"
         aria-hidden="true"
       >
         <defs>
-          <path id="approachArc" d="M 20 160 A 130 130 0 0 1 280 160" fill="none" />
+          <path id="approachArc" d="M 10 184 A 174 174 0 0 1 358 184" fill="none" />
         </defs>
-        <text className="fill-steel font-heading text-[12px]">
+        <text className="fill-steel font-heading text-[15px]">
           <textPath href="#approachArc" startOffset="50%" textAnchor="middle">
             {approach}
           </textPath>

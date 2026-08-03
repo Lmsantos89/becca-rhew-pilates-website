@@ -1,7 +1,10 @@
 {
   "hero": {
     "headline": "Movement that meets you where you are in life",
-    "subheading": "Mat, Reformer and Private Pilates training in the Bern area."
+    "subheading": "Mat, Reformer and Private Pilates training in the Bern area.",
+    "eyebrow": "Pilates · Bern",
+    "viewSchedule": "View schedule",
+    "getInTouch": "Get in touch"
   },
   "nav": {
     "home": "Home",
