@@ -26,8 +26,8 @@ type Translator = Awaited<ReturnType<typeof getTranslations>>;
 function ScheduleCard({ row, days }: { row: ClassScheduleEntry; days: Translator }) {
   return (
     <article className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
-      <div className="flex w-20 flex-shrink-0 flex-col items-center rounded-lg bg-mint py-2">
-        <span className="text-xs uppercase tracking-widest text-ink/60">{days(row.dayOfWeek)}</span>
+      <div className="flex w-24 flex-shrink-0 flex-col items-center rounded-lg bg-mint px-2 py-2">
+        <span className="text-xs uppercase tracking-wide text-ink/60">{days(row.dayOfWeek)}</span>
         <span className="font-heading text-lg font-semibold text-steel">{row.time}</span>
       </div>
       <div className="pt-1">
