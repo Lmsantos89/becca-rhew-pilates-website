@@ -9,8 +9,24 @@ interface Props {
   goToLabel: string;
 }
 
+const VISIBLE_COUNT = 3;
 const ARROW_CLASS =
   'rounded-full border border-white/40 px-3 py-1 text-white transition-colors hover:bg-white/10';
+// CAVEMAN: narrow screens drop the extra cards, window still slides by one
+const SLOT_CLASS = ['flex', 'hidden sm:flex', 'hidden lg:flex'];
+
+function TestimonialCard({ testimonial, slot }: { testimonial: Testimonial; slot: number }) {
+  return (
+    <blockquote
+      className={`h-64 flex-col justify-between rounded-lg bg-white/10 p-6 text-white ${SLOT_CLASS[slot]}`}
+    >
+      <p className="line-clamp-6 leading-relaxed">“{testimonial.quote}”</p>
+      <footer className="mt-4 text-sm font-semibold uppercase tracking-widest">
+        — {testimonial.author}
+      </footer>
+    </blockquote>
+  );
+}
 
 function Dots({ count, activeIndex, goToLabel, onSelect }: {
   count: number;
@@ -42,35 +58,30 @@ export default function TestimonialsCarousel({
   nextLabel,
   goToLabel,
 }: Props) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const active = testimonials[activeIndex];
+  const [startIndex, setStartIndex] = useState(0);
+  const count = testimonials.length;
+  // CAVEMAN: wrap window so three cards always filled
+  const visible = Array.from(
+    { length: Math.min(VISIBLE_COUNT, count) },
+    (_, offset) => testimonials[(startIndex + offset) % count]
+  );
 
-  // CAVEMAN: wrap around so arrows never dead end
   function step(direction: 1 | -1) {
-    const count = testimonials.length;
-    setActiveIndex((current) => (current + direction + count) % count);
+    setStartIndex((current) => (current + direction + count) % count);
   }
 
   return (
-    <div className="mx-auto max-w-3xl text-center text-white">
-      <blockquote>
-        <p className="font-heading text-xl italic leading-relaxed md:text-2xl">
-          “{active.quote}”
-        </p>
-        <footer className="mt-6 text-sm font-semibold uppercase tracking-widest">
-          — {active.author}
-        </footer>
-      </blockquote>
+    <div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((testimonial, slot) => (
+          <TestimonialCard key={testimonial._id} testimonial={testimonial} slot={slot} />
+        ))}
+      </div>
       <div className="mt-8 flex items-center justify-center gap-5">
         <button type="button" aria-label={previousLabel} onClick={() => step(-1)} className={ARROW_CLASS}>
           ‹
         </button>
-        <Dots
-          count={testimonials.length}
-          activeIndex={activeIndex}
-          goToLabel={goToLabel}
-          onSelect={setActiveIndex}
-        />
+        <Dots count={count} activeIndex={startIndex} goToLabel={goToLabel} onSelect={setStartIndex} />
         <button type="button" aria-label={nextLabel} onClick={() => step(1)} className={ARROW_CLASS}>
           ›
         </button>
