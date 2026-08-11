@@ -5,25 +5,60 @@ import type { Locale, ClassScheduleEntry } from '@/sanity/lib/types';
 // CAVEMAN: demo rows until Sanity filled
 const PLACEHOLDER_SCHEDULE: Record<Locale, ClassScheduleEntry[]> = {
   en: [
-    { _id: 's1', dayOfWeek: 'monday', time: '12:15', className: 'Pilates Mat I-III', language: 'Deutsch', locationName: 'Pilates Bern + Online', locationCity: 'Bern', isActive: true },
-    { _id: 's2', dayOfWeek: 'monday', time: '14:00', className: 'Reformer Light & Best Age', language: 'English/Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's3', dayOfWeek: 'tuesday', time: '12:00', className: 'Reformer I-II', language: 'English', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's1', dayOfWeek: 'monday', time: '12:15', className: 'Pilates Mat I-III', language: 'Deutsch', locationName: 'Pilates Bern + Online', isActive: true },
+    { _id: 's2', dayOfWeek: 'monday', time: '14:00', className: 'Reformer Light & Best Age', language: 'English/Deutsch', locationName: 'Pilates Bern', isActive: true },
+    { _id: 's3', dayOfWeek: 'tuesday', time: '12:00', className: 'Reformer I-II', language: 'English', locationName: 'Pilates Bern', isActive: true },
     { _id: 's4', dayOfWeek: 'wednesday', time: '09:00', className: 'Pilates Mat (All levels)', language: 'English', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
-    { _id: 's5', dayOfWeek: 'wednesday', time: '12:00', className: 'Reformer I-III', language: 'English', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's5', dayOfWeek: 'wednesday', time: '12:00', className: 'Reformer I-III', language: 'English', locationName: 'Pilates Bern', isActive: true },
   ],
   de: [
-    { _id: 's1', dayOfWeek: 'monday', time: '12:15', className: 'Pilates Mat I-III', language: 'Deutsch', locationName: 'Pilates Bern + Online', locationCity: 'Bern', isActive: true },
-    { _id: 's2', dayOfWeek: 'monday', time: '14:00', className: 'Reformer Light & Best Age', language: 'Englisch/Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's3', dayOfWeek: 'tuesday', time: '12:00', className: 'Reformer I-II', language: 'Englisch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's1', dayOfWeek: 'monday', time: '12:15', className: 'Pilates Mat I-III', language: 'Deutsch', locationName: 'Pilates Bern + Online', isActive: true },
+    { _id: 's2', dayOfWeek: 'monday', time: '14:00', className: 'Reformer Light & Best Age', language: 'Englisch/Deutsch', locationName: 'Pilates Bern', isActive: true },
+    { _id: 's3', dayOfWeek: 'tuesday', time: '12:00', className: 'Reformer I-II', language: 'Englisch', locationName: 'Pilates Bern', isActive: true },
     { _id: 's4', dayOfWeek: 'wednesday', time: '09:00', className: 'Pilates Mat (Alle Level)', language: 'Englisch', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
-    { _id: 's5', dayOfWeek: 'wednesday', time: '12:00', className: 'Reformer I-III', language: 'Englisch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's5', dayOfWeek: 'wednesday', time: '12:00', className: 'Reformer I-III', language: 'Englisch', locationName: 'Pilates Bern', isActive: true },
   ],
 };
 
 type Translator = Awaited<ReturnType<typeof getTranslations>>;
 
+const STUDIO_NAME = 'Pilates Bern';
+const STUDIO_URL: Record<Locale, string> = {
+  en: 'https://www.pilates-bern.ch/en/',
+  de: 'https://www.pilates-bern.ch/de/',
+};
+
+// CAVEMAN: link studio name, keep any suffix like "+ Online" as plain text
+function ScheduleLocation({ locationName, locationCity, studioUrl }: {
+  locationName: string;
+  locationCity?: string;
+  studioUrl: string;
+}) {
+  const city = locationCity ? `, ${locationCity}` : '';
+  if (!locationName.startsWith(STUDIO_NAME)) {
+    return <p className="text-sm text-ink/60">{locationName + city}</p>;
+  }
+  return (
+    <p className="text-sm text-ink/60">
+      <a
+        href={studioUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-steel underline underline-offset-4 transition-colors hover:text-ink"
+      >
+        {STUDIO_NAME}
+      </a>
+      {locationName.slice(STUDIO_NAME.length) + city}
+    </p>
+  );
+}
+
 // CAVEMAN: day+time badge left, class+location right
-function ScheduleCard({ row, days }: { row: ClassScheduleEntry; days: Translator }) {
+function ScheduleCard({ row, days, studioUrl }: {
+  row: ClassScheduleEntry;
+  days: Translator;
+  studioUrl: string;
+}) {
   return (
     <article className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
       <div className="flex w-24 flex-shrink-0 flex-col items-center rounded-lg bg-mint px-2 py-2">
@@ -34,10 +69,11 @@ function ScheduleCard({ row, days }: { row: ClassScheduleEntry; days: Translator
         <h3 className="font-heading text-base font-semibold text-ink">{row.className}</h3>
         {row.language && <p className="mt-1 text-sm text-ink/70">{row.language}</p>}
         {row.locationName && (
-          <p className="text-sm text-ink/60">
-            {row.locationName}
-            {row.locationCity ? `, ${row.locationCity}` : ''}
-          </p>
+          <ScheduleLocation
+            locationName={row.locationName}
+            locationCity={row.locationCity}
+            studioUrl={studioUrl}
+          />
         )}
       </div>
     </article>
@@ -45,11 +81,15 @@ function ScheduleCard({ row, days }: { row: ClassScheduleEntry; days: Translator
 }
 
 // CAVEMAN: card grid split out so Schedule stays under 40 lines
-function ScheduleCards({ rows, days }: { rows: ClassScheduleEntry[]; days: Translator }) {
+function ScheduleCards({ rows, days, studioUrl }: {
+  rows: ClassScheduleEntry[];
+  days: Translator;
+  studioUrl: string;
+}) {
   return (
     <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {rows.map((row) => (
-        <ScheduleCard key={row._id} row={row} days={days} />
+        <ScheduleCard key={row._id} row={row} days={days} studioUrl={studioUrl} />
       ))}
     </div>
   );
@@ -70,7 +110,7 @@ export default async function Schedule({ locale }: { locale: Locale }) {
         {rows.length === 0 ? (
           <p className="mt-8 text-ink/70">{t('noClasses')}</p>
         ) : (
-          <ScheduleCards rows={rows} days={days} />
+          <ScheduleCards rows={rows} days={days} studioUrl={STUDIO_URL[locale]} />
         )}
         <blockquote className="mt-12 text-center font-heading text-xl italic text-ink">
           “{t('quote')}”
