@@ -1,7 +1,6 @@
 'use client';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
-import { IconBrandInstagram } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 
 const NAV_LINKS = [
@@ -70,15 +69,6 @@ function NavActions({
   return (
     <div className="flex items-center gap-4">
       <LocaleSwitcher locale={locale} onSwitch={onSwitchLocale} />
-      <a
-        href="https://instagram.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-        className="text-muted transition-colors hover:text-steel"
-      >
-        <IconBrandInstagram size={20} />
-      </a>
     </div>
   );
 }

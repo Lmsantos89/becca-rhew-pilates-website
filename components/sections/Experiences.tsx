@@ -16,7 +16,7 @@ const PLACEHOLDER_EXPERIENCES: Record<Locale, Offering[]> = {
       _id: 'reformer',
       title: 'Reformer',
       description:
-        'In the heart of old town Bern, Pilates Bern studio offers reformer classes for all levels. Reformer classes use the resistance and support of the reformer machine to guide you through a full-body workout that builds strength, improves flexibility, and enhances body awareness. Each class is designed to challenge and support you in equal measure — leaving you feeling stronger, more mobile, and deeply connected to your body.',
+        "In the heart of Bern's old town, the studio at Pilates Bern offers reformer classes for all levels. Reformer classes use the resistance and support of the reformer machine to guide you through a full-body workout that builds strength, improves flexibility, and enhances body awareness. Each class is designed to challenge and support you in equal measure — leaving you feeling stronger, more mobile, and deeply connected to your body.",
       linkUrl: 'https://www.pilates-bern.ch/en/',
     },
     {

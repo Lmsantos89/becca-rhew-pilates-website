@@ -1,8 +1,7 @@
 {
   "hero": {
     "headline": "Bewegung, die dich dort abholt, wo du im Leben stehst",
-    "subheading": "Matten-, Reformer- und Privat-Pilates in der Region Bern.",
-    "eyebrow": "Pilates · Bern",
+    "subheading": "Matten-, Reformer- und Privat-Pilates in der Region Bern",
     "viewSchedule": "Kursplan ansehen",
     "getInTouch": "Kontakt aufnehmen"
   },
@@ -40,7 +39,6 @@
   "contact": {
     "title": "Kontakt aufnehmen",
     "subtitle": "Fragen, Buchungen oder einfach Hallo — melde dich jederzeit.",
-    "phoneLabel": "Telefon / WhatsApp",
     "emailLabel": "E-Mail",
     "nameLabel": "Name",
     "namePlaceholder": "Dein Name",
@@ -59,7 +57,8 @@
   "testimonials": {
     "title": "Das sagen meine Kundinnen",
     "previous": "Vorheriges Testimonial",
-    "next": "Nächstes Testimonial"
+    "next": "Nächstes Testimonial",
+    "goTo": "Testimonial-Seite anzeigen"
   },
   "footer": {
     "copyright": "© {year} Vitality Pilates. Alle Rechte vorbehalten."

@@ -25,8 +25,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent" />
       <div className="relative mx-auto w-full max-w-container px-6 pb-16 text-white md:pb-24">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-teal">{t('eyebrow')}</p>
-        <h1 className="mt-4 max-w-2xl font-heading text-4xl font-semibold leading-[1.05] md:text-6xl">
+        <h1 className="max-w-2xl font-heading text-4xl font-semibold leading-[1.05] md:text-6xl">
           {headline}
         </h1>
         <p className="mt-5 max-w-lg text-lg text-white/90">{subheading}</p>
