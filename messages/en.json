@@ -1,8 +1,7 @@
 {
   "hero": {
     "headline": "Movement that meets you where you are in life",
-    "subheading": "Mat, Reformer and Private Pilates training in the Bern area.",
-    "eyebrow": "Pilates · Bern",
+    "subheading": "Mat, Reformer and Private Pilates training in the Bern area",
     "viewSchedule": "View schedule",
     "getInTouch": "Get in touch"
   },
@@ -40,7 +39,6 @@
   "contact": {
     "title": "Get in touch",
     "subtitle": "Questions, bookings, or just a hello — reach out anytime.",
-    "phoneLabel": "Phone / WhatsApp",
     "emailLabel": "Email",
     "nameLabel": "Name",
     "namePlaceholder": "Your name",
@@ -54,7 +52,7 @@
   },
   "experiences": {
     "title": "Pilates Experiences",
-    "reformerLinkLabel": "Pilates Bern studio"
+    "reformerLinkLabel": "Pilates Bern"
   },
   "testimonials": {
     "title": "What My Clients Say",
