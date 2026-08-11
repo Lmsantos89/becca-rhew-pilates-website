@@ -10,6 +10,8 @@ interface Props {
 }
 
 const VISIBLE_COUNT = 3;
+// CAVEMAN: fits longest quote in both languages so section never resizes
+const CARD_HEIGHT = 'min-h-[28rem]';
 const ARROW_CLASS =
   'rounded-full border border-white/40 px-3 py-1 text-white transition-colors hover:bg-white/10';
 // CAVEMAN: narrow screens drop the extra cards, window still slides by one
@@ -18,9 +20,9 @@ const SLOT_CLASS = ['flex', 'hidden sm:flex', 'hidden lg:flex'];
 function TestimonialCard({ testimonial, slot }: { testimonial: Testimonial; slot: number }) {
   return (
     <blockquote
-      className={`h-64 flex-col justify-between rounded-lg bg-white/10 p-6 text-white ${SLOT_CLASS[slot]}`}
+      className={`${CARD_HEIGHT} flex-col justify-between rounded-lg bg-white/10 p-6 text-white ${SLOT_CLASS[slot]}`}
     >
-      <p className="line-clamp-6 leading-relaxed">“{testimonial.quote}”</p>
+      <p className="text-sm leading-relaxed">“{testimonial.quote}”</p>
       <footer className="mt-4 text-sm font-semibold uppercase tracking-widest">
         — {testimonial.author}
       </footer>
