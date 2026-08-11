@@ -5,18 +5,18 @@ import type { Locale, ClassScheduleEntry } from '@/sanity/lib/types';
 // CAVEMAN: demo rows until Sanity filled
 const PLACEHOLDER_SCHEDULE: Record<Locale, ClassScheduleEntry[]> = {
   en: [
-    { _id: 's1', dayOfWeek: 'monday', time: '09:00', className: 'Mat Pilates', language: 'Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's2', dayOfWeek: 'monday', time: '18:30', className: 'Reformer Pilates', language: 'Deutsch/Eng', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's3', dayOfWeek: 'tuesday', time: '09:00', className: 'Mat Pilates', language: 'English', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
-    { _id: 's4', dayOfWeek: 'tuesday', time: '19:00', className: 'Reformer Pilates', language: 'Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's5', dayOfWeek: 'wednesday', time: '10:00', className: 'Mat Pilates', language: 'Deutsch/Eng', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
+    { _id: 's1', dayOfWeek: 'monday', time: '12:15', className: 'Pilates Mat I-III', language: 'Deutsch', locationName: 'Pilates Bern + Online', locationCity: 'Bern', isActive: true },
+    { _id: 's2', dayOfWeek: 'monday', time: '14:00', className: 'Reformer Light & Best Age', language: 'English/Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's3', dayOfWeek: 'tuesday', time: '12:00', className: 'Reformer I-II', language: 'English', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's4', dayOfWeek: 'wednesday', time: '09:00', className: 'Pilates Mat (All levels)', language: 'English', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
+    { _id: 's5', dayOfWeek: 'wednesday', time: '12:00', className: 'Reformer I-III', language: 'English', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
   ],
   de: [
-    { _id: 's1', dayOfWeek: 'monday', time: '09:00', className: 'Matten-Pilates', language: 'Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's2', dayOfWeek: 'monday', time: '18:30', className: 'Reformer-Pilates', language: 'Deutsch/Eng', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's3', dayOfWeek: 'tuesday', time: '09:00', className: 'Matten-Pilates', language: 'English', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
-    { _id: 's4', dayOfWeek: 'tuesday', time: '19:00', className: 'Reformer-Pilates', language: 'Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
-    { _id: 's5', dayOfWeek: 'wednesday', time: '10:00', className: 'Matten-Pilates', language: 'Deutsch/Eng', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
+    { _id: 's1', dayOfWeek: 'monday', time: '12:15', className: 'Pilates Mat I-III', language: 'Deutsch', locationName: 'Pilates Bern + Online', locationCity: 'Bern', isActive: true },
+    { _id: 's2', dayOfWeek: 'monday', time: '14:00', className: 'Reformer Light & Best Age', language: 'Englisch/Deutsch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's3', dayOfWeek: 'tuesday', time: '12:00', className: 'Reformer I-II', language: 'Englisch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
+    { _id: 's4', dayOfWeek: 'wednesday', time: '09:00', className: 'Pilates Mat (Alle Level)', language: 'Englisch', locationName: 'Power Arena', locationCity: 'Muri bei Bern', isActive: true },
+    { _id: 's5', dayOfWeek: 'wednesday', time: '12:00', className: 'Reformer I-III', language: 'Englisch', locationName: 'Pilates Bern', locationCity: 'Bern', isActive: true },
   ],
 };
 
