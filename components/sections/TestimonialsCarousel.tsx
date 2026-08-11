@@ -60,16 +60,19 @@ export default function TestimonialsCarousel({
   nextLabel,
   goToLabel,
 }: Props) {
-  const [startIndex, setStartIndex] = useState(0);
+  const [page, setPage] = useState(0);
   const count = testimonials.length;
-  // CAVEMAN: wrap window so three cards always filled
-  const visible = Array.from(
-    { length: Math.min(VISIBLE_COUNT, count) },
-    (_, offset) => testimonials[(startIndex + offset) % count]
-  );
+  const pageCount = Math.max(1, Math.ceil(count / VISIBLE_COUNT));
+  // CAVEMAN: last page sticks to the end so no half empty row
+  const start = Math.max(0, Math.min(page * VISIBLE_COUNT, count - VISIBLE_COUNT));
+  const visible = testimonials.slice(start, start + VISIBLE_COUNT);
 
   function step(direction: 1 | -1) {
-    setStartIndex((current) => (current + direction + count) % count);
+    setPage((current) => (current + direction + pageCount) % pageCount);
+  }
+
+  if (count === 0) {
+    return null;
   }
 
   return (
@@ -79,15 +82,17 @@ export default function TestimonialsCarousel({
           <TestimonialCard key={testimonial._id} testimonial={testimonial} slot={slot} />
         ))}
       </div>
-      <div className="mt-8 flex items-center justify-center gap-5">
-        <button type="button" aria-label={previousLabel} onClick={() => step(-1)} className={ARROW_CLASS}>
-          ‹
-        </button>
-        <Dots count={count} activeIndex={startIndex} goToLabel={goToLabel} onSelect={setStartIndex} />
-        <button type="button" aria-label={nextLabel} onClick={() => step(1)} className={ARROW_CLASS}>
-          ›
-        </button>
-      </div>
+      {pageCount > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-5">
+          <button type="button" aria-label={previousLabel} onClick={() => step(-1)} className={ARROW_CLASS}>
+            ‹
+          </button>
+          <Dots count={pageCount} activeIndex={page} goToLabel={goToLabel} onSelect={setPage} />
+          <button type="button" aria-label={nextLabel} onClick={() => step(1)} className={ARROW_CLASS}>
+            ›
+          </button>
+        </div>
+      )}
     </div>
   );
 }
