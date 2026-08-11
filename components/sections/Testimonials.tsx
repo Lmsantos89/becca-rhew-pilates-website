@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { getTestimonials } from '@/sanity/lib/queries';
-import TestimonialsScroller from './TestimonialsScroller';
+import TestimonialsCarousel from './TestimonialsCarousel';
 import type { Locale, Testimonial } from '@/sanity/lib/types';
 
 // CAVEMAN: demo quotes until Sanity filled. DE machine-drafted, confirm with client
@@ -83,10 +83,11 @@ export default async function Testimonials({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-container px-6">
         <h2 className="font-heading text-3xl font-semibold text-white">{t('title')}</h2>
         <div className="mt-10">
-          <TestimonialsScroller
+          <TestimonialsCarousel
             testimonials={items}
             previousLabel={t('previous')}
             nextLabel={t('next')}
+            goToLabel={t('goTo')}
           />
         </div>
       </div>

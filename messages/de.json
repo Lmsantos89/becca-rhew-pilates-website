@@ -57,7 +57,8 @@
   "testimonials": {
     "title": "Das sagen meine Kundinnen",
     "previous": "Vorheriges Testimonial",
-    "next": "Nächstes Testimonial"
+    "next": "Nächstes Testimonial",
+    "goTo": "Testimonial anzeigen"
   },
   "footer": {
     "copyright": "© {year} Vitality Pilates. Alle Rechte vorbehalten."
