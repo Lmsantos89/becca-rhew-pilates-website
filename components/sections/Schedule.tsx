@@ -28,6 +28,57 @@ const STUDIO_URL: Record<Locale, string> = {
   de: 'https://www.pilates-bern.ch/de/',
 };
 
+const STUDIO_PRICING_URL =
+  'https://www.pilates-bern.ch/files/Preise/01.01.2025_Preisliste_Pilates_Bern.pdf';
+
+const LINK_CLASS =
+  'text-steel underline underline-offset-4 transition-colors hover:text-ink';
+
+function PowerArenaPrices({ t }: { t: Translator }) {
+  const rows = [
+    { labelKey: 'pricingTrial', amount: t('pricingFree') },
+    { labelKey: 'pricingFivePass', amount: '125 CHF' },
+    { labelKey: 'pricingTenPass', amount: '250 CHF' },
+  ];
+  return (
+    <dl className="mt-2 flex flex-col gap-1 text-sm text-ink">
+      {rows.map((row) => (
+        <div key={row.labelKey} className="flex justify-between gap-4 sm:justify-start">
+          <dt className="sm:w-32">{t(row.labelKey)}</dt>
+          <dd className="font-semibold">{row.amount}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function SchedulePricing({ t }: { t: Translator }) {
+  return (
+    <div className="mt-10 rounded-xl bg-white p-6 shadow-sm ring-1 ring-ink/5">
+      <h3 className="font-heading text-lg font-semibold text-ink">{t('pricingTitle')}</h3>
+      <div className="mt-4 grid gap-6 sm:grid-cols-2">
+        <div>
+          <h4 className="font-heading text-base text-ink">{t('pricingStudioTitle')}</h4>
+          <p className="mt-1 text-sm text-ink/70">{t('pricingStudioNote')}</p>
+          <a
+            href={STUDIO_PRICING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`mt-2 inline-block text-sm ${LINK_CLASS}`}
+          >
+            {t('pricingStudioLink')}
+          </a>
+        </div>
+        <div>
+          <h4 className="font-heading text-base text-ink">{t('pricingPowerArenaTitle')}</h4>
+          <PowerArenaPrices t={t} />
+          <p className="mt-2 text-xs text-ink/60">{t('pricingPowerArenaNote')}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // CAVEMAN: link studio name, keep any suffix like "+ Online" as plain text
 function ScheduleLocation({ locationName, locationCity, studioUrl }: {
   locationName: string;
@@ -44,7 +95,7 @@ function ScheduleLocation({ locationName, locationCity, studioUrl }: {
         href={studioUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-steel underline underline-offset-4 transition-colors hover:text-ink"
+        className={LINK_CLASS}
       >
         {STUDIO_NAME}
       </a>
@@ -112,6 +163,7 @@ export default async function Schedule({ locale }: { locale: Locale }) {
         ) : (
           <ScheduleCards rows={rows} days={days} studioUrl={STUDIO_URL[locale]} />
         )}
+        <SchedulePricing t={t} />
         <blockquote className="mt-12 text-center font-heading text-xl italic text-ink">
           “{t('quote')}”
           <footer className="mt-2 text-sm not-italic text-ink/70">— {t('quoteAuthor')}</footer>

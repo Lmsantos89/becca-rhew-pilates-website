@@ -20,7 +20,17 @@
     "colClass": "Class & Location",
     "quote": "Change happens through movement and movement heals",
     "quoteAuthor": "Joseph Pilates",
-    "noClasses": "No classes scheduled at the moment. Check back soon."
+    "noClasses": "No classes scheduled at the moment. Check back soon.",
+    "pricingTitle": "Pricing",
+    "pricingStudioTitle": "Classes at Pilates Bern",
+    "pricingStudioNote": "Mat and Reformer classes at the studio are booked and paid through Pilates Bern.",
+    "pricingStudioLink": "Pilates Bern price list (PDF)",
+    "pricingPowerArenaTitle": "Pilates Mat at Power Arena",
+    "pricingTrial": "Trial class",
+    "pricingFree": "Free",
+    "pricingFivePass": "5-class pass",
+    "pricingTenPass": "10-class pass",
+    "pricingPowerArenaNote": "Passes do not expire and cannot be refunded after purchase. Payment by cash, Twint or bank transfer."
   },
   "days": {
     "monday": "Monday",
