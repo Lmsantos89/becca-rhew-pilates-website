@@ -20,7 +20,17 @@
     "colClass": "Kurs & Ort",
     "quote": "Veränderung entsteht durch Bewegung, und Bewegung heilt",
     "quoteAuthor": "Joseph Pilates",
-    "noClasses": "Derzeit keine Stunden geplant. Schau bald wieder vorbei."
+    "noClasses": "Derzeit keine Stunden geplant. Schau bald wieder vorbei.",
+    "pricingTitle": "Preise",
+    "pricingStudioTitle": "Kurse im Pilates Bern",
+    "pricingStudioNote": "Matten- und Reformer-Kurse im Studio werden über Pilates Bern gebucht und bezahlt.",
+    "pricingStudioLink": "Preisliste Pilates Bern (PDF)",
+    "pricingPowerArenaTitle": "Pilates Mat in der Power Arena",
+    "pricingTrial": "Probestunde",
+    "pricingFree": "Gratis",
+    "pricingFivePass": "5er-Abo",
+    "pricingTenPass": "10er-Abo",
+    "pricingPowerArenaNote": "Abos verfallen nicht und können nach dem Kauf nicht zurückerstattet werden. Zahlung mit Bargeld, Twint oder Banküberweisung."
   },
   "days": {
     "monday": "Montag",

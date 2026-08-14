@@ -65,14 +65,14 @@ function ApproachArc({ approach }: { approach: string }) {
   return (
     <div className="relative flex justify-center pt-16">
       <svg
-        viewBox="0 0 368 368"
-        className="pointer-events-none absolute top-10 left-1/2 h-[23rem] w-[23rem] -translate-x-1/2"
+        viewBox="0 0 400 400"
+        className="pointer-events-none absolute top-6 left-1/2 h-[25rem] w-[25rem] -translate-x-1/2"
         aria-hidden="true"
       >
         <defs>
-          <path id="approachArc" d="M 10 184 A 174 174 0 0 1 358 184" fill="none" />
+          <path id="approachArc" d="M 26 200 A 174 174 0 0 1 374 200" fill="none" />
         </defs>
-        <text className="fill-steel font-heading text-[18px]">
+        <text className="fill-steel font-heading text-[16px]">
           <textPath href="#approachArc" startOffset="50%" textAnchor="middle">
             {approach}
           </textPath>

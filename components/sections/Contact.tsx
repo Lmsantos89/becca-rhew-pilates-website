@@ -2,10 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import { IconMail } from '@tabler/icons-react';
 import { getSiteSettings } from '@/sanity/lib/queries';
 import ContactForm from '@/components/ContactForm';
+import { CONTACT_EMAIL } from '@/lib/site';
 import type { Locale } from '@/sanity/lib/types';
-
-// CAVEMAN: fallback until Sanity filled
-const PLACEHOLDER_EMAIL = 'vitalitypilatesbern@gmail.com';
 
 type Translator = Awaited<ReturnType<typeof getTranslations>>;
 
@@ -31,7 +29,7 @@ export default async function Contact({ locale }: { locale: Locale }) {
     getTranslations('contact'),
     getSiteSettings(locale),
   ]);
-  const email = settings?.contactEmail ?? PLACEHOLDER_EMAIL;
+  const email = settings?.contactEmail ?? CONTACT_EMAIL;
 
   return (
     <section id="contact" className="bg-cream py-24">
