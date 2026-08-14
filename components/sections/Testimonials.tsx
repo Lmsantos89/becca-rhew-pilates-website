@@ -36,6 +36,12 @@ const PLACEHOLDER_TESTIMONIALS: Record<Locale, Testimonial[]> = {
       quote:
         "Ever since I started doing Pilates with Becca, I haven't had any more shoulder or back pain. I feel completely at ease. The exercises she chooses and the way she makes sure they're done properly are simply brilliant. I'm looking forward to many more lovely training evenings with Becca.",
     },
+    {
+      _id: 't6',
+      author: 'Jasmin S.',
+      quote:
+        'I feel more strength in my core, have better balance and am more aware of my body. I notice that movements come more easily to me, particularly when straightening up and standing up. Rebecca is very motivating and attentive, and her manner brings a sense of ease to the class.',
+    },
   ],
   de: [
     {
@@ -67,6 +73,12 @@ const PLACEHOLDER_TESTIMONIALS: Record<Locale, Testimonial[]> = {
       author: 'Marianne B.',
       quote:
         'Seit ich mit Becca Pilates mache, habe ich keine Schulter- oder Rückenschmerzen mehr. Ich fühle mich rundum wohl. Die Übungen, die sie auswählt, und die Art, wie sie auf die korrekte Ausführung achtet, sind einfach genial. Ich freue mich auf viele weitere schöne Trainingsabende mit Becca.',
+    },
+    {
+      _id: 't6',
+      author: 'Jasmin S.',
+      quote:
+        'Ich spüre mehr Kraft in der Körpermitte, habe ein besseres Gleichgewicht und nehme meinen Körper bewusster wahr. Ich merke, dass mir Bewegungen leichter fallen, besonders beim Aufrichten und Aufstehen. Rebecca ist sehr motivierend und aufmerksam, und ihre Art bringt Leichtigkeit in die Stunde.',
     },
   ],
 };
