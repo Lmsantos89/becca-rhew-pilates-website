@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { CONTACT_EMAIL } from '@/lib/site';
+import { CONTACT_EMAIL, SENDER_EMAIL } from '@/lib/site';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
-    from: 'noreply@beccarhew.com',
+    from: SENDER_EMAIL,
     to: CONTACT_EMAIL,
     subject: `New message from ${body.name}`,
     text: `Name: ${body.name}\nEmail: ${body.email}\n\n${body.message}`,
