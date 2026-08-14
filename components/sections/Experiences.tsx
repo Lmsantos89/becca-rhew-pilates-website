@@ -37,7 +37,7 @@ const PLACEHOLDER_EXPERIENCES: Record<Locale, Offering[]> = {
       _id: 'reformer',
       title: 'Reformer',
       description:
-        'Im Herzen der Berner Altstadt bietet das Pilates Bern Studio Reformer-Kurse für alle Niveaus. Reformer-Kurse nutzen den Widerstand und die Unterstützung des Reformer-Geräts, um dich durch ein Ganzkörpertraining zu führen, das Kraft aufbaut, die Beweglichkeit verbessert und das Körperbewusstsein schärft. Jede Stunde fordert und unterstützt dich zu gleichen Teilen — und lässt dich stärker, beweglicher und tiefer mit deinem Körper verbunden zurück.',
+        'Im Herzen der Berner Altstadt bietet das Pilates Bern Studio Reformer-Kurse für alle Niveaus. Reformer-Kurse nutzen den Widerstand und die Unterstützung des Reformer-Geräts, um dich durch ein Ganzkörpertraining zu führen, das Kraft aufbaut, die Beweglichkeit verbessert und das Körperbewusstsein schärft. Jede Stunde fordert und unterstützt dich zu gleichen Teilen — und macht dich stärker, beweglicher und verbindet dich tiefer mit deinem Körper.',
       linkUrl: 'https://www.pilates-bern.ch/de/',
     },
     {
