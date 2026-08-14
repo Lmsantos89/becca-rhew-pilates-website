@@ -1,10 +1,9 @@
 import type { MetadataRoute } from 'next';
-
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://beccarhew.com';
+import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: `${BASE}/en`, lastModified: new Date() },
-    { url: `${BASE}/de`, lastModified: new Date() },
+    { url: `${SITE_URL}/en`, lastModified: new Date() },
+    { url: `${SITE_URL}/de`, lastModified: new Date() },
   ];
 }
