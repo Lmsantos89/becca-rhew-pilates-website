@@ -23,7 +23,6 @@ describe('POST /api/contact', () => {
   beforeEach(() => {
     vi.resetModules();
     process.env.RESEND_API_KEY = 'test-key';
-    process.env.CONTACT_EMAIL = 'test@example.com';
   });
 
   it('returns 400 when name is empty', async () => {
