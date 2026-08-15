@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Testimonial } from '@/sanity/lib/types';
 
 interface Props {
@@ -9,18 +9,39 @@ interface Props {
   goToLabel: string;
 }
 
-const VISIBLE_COUNT = 3;
+// CAVEMAN: page size follows the grid columns so every quote stays reachable
+const VISIBLE_BY_BREAKPOINT = [
+  { query: '(min-width: 1024px)', count: 3 },
+  { query: '(min-width: 640px)', count: 2 },
+];
+const NARROW_COUNT = 1;
 // CAVEMAN: fits longest quote in both languages so section never resizes
 const CARD_HEIGHT = 'min-h-[28rem]';
 const ARROW_CLASS =
   'rounded-full border border-white/40 px-3 py-1 text-white transition-colors hover:bg-white/10';
-// CAVEMAN: narrow screens drop the extra cards, window still slides by one
-const SLOT_CLASS = ['flex', 'hidden sm:flex', 'hidden lg:flex'];
 
-function TestimonialCard({ testimonial, slot }: { testimonial: Testimonial; slot: number }) {
+function useVisibleCount(): number {
+  const [visibleCount, setVisibleCount] = useState(VISIBLE_BY_BREAKPOINT[0].count);
+
+  useEffect(() => {
+    const mediaQueries = VISIBLE_BY_BREAKPOINT.map((step) => window.matchMedia(step.query));
+    function update() {
+      const step = VISIBLE_BY_BREAKPOINT.find((_, index) => mediaQueries[index].matches);
+      setVisibleCount(step ? step.count : NARROW_COUNT);
+    }
+    update();
+    mediaQueries.forEach((mediaQuery) => mediaQuery.addEventListener('change', update));
+    return () =>
+      mediaQueries.forEach((mediaQuery) => mediaQuery.removeEventListener('change', update));
+  }, []);
+
+  return visibleCount;
+}
+
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <blockquote
-      className={`${CARD_HEIGHT} flex-col justify-between rounded-lg bg-white/10 p-6 text-white ${SLOT_CLASS[slot]}`}
+      className={`${CARD_HEIGHT} flex flex-col justify-between rounded-lg bg-white/10 p-6 text-white`}
     >
       <p className="text-sm leading-relaxed">“{testimonial.quote}”</p>
       <footer className="mt-4 text-sm font-semibold uppercase tracking-widest">
@@ -61,14 +82,17 @@ export default function TestimonialsCarousel({
   goToLabel,
 }: Props) {
   const [page, setPage] = useState(0);
+  const visibleCount = useVisibleCount();
   const count = testimonials.length;
-  const pageCount = Math.max(1, Math.ceil(count / VISIBLE_COUNT));
+  const pageCount = Math.max(1, Math.ceil(count / visibleCount));
+  // CAVEMAN: resizing can leave page past the end
+  const safePage = Math.min(page, pageCount - 1);
   // CAVEMAN: last page sticks to the end so no half empty row
-  const start = Math.max(0, Math.min(page * VISIBLE_COUNT, count - VISIBLE_COUNT));
-  const visible = testimonials.slice(start, start + VISIBLE_COUNT);
+  const start = Math.max(0, Math.min(safePage * visibleCount, count - visibleCount));
+  const visible = testimonials.slice(start, start + visibleCount);
 
   function step(direction: 1 | -1) {
-    setPage((current) => (current + direction + pageCount) % pageCount);
+    setPage((current) => (Math.min(current, pageCount - 1) + direction + pageCount) % pageCount);
   }
 
   if (count === 0) {
@@ -78,8 +102,8 @@ export default function TestimonialsCarousel({
   return (
     <div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((testimonial, slot) => (
-          <TestimonialCard key={testimonial._id} testimonial={testimonial} slot={slot} />
+        {visible.map((testimonial) => (
+          <TestimonialCard key={testimonial._id} testimonial={testimonial} />
         ))}
       </div>
       {pageCount > 1 && (
@@ -87,7 +111,7 @@ export default function TestimonialsCarousel({
           <button type="button" aria-label={previousLabel} onClick={() => step(-1)} className={ARROW_CLASS}>
             ‹
           </button>
-          <Dots count={pageCount} activeIndex={page} goToLabel={goToLabel} onSelect={setPage} />
+          <Dots count={pageCount} activeIndex={safePage} goToLabel={goToLabel} onSelect={setPage} />
           <button type="button" aria-label={nextLabel} onClick={() => step(1)} className={ARROW_CLASS}>
             ›
           </button>
