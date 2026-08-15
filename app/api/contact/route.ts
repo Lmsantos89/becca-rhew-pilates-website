@@ -23,7 +23,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
   }
 
-  const client = request.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown';
+  // CAVEMAN: last entry is the one our proxy appends, earlier ones the caller can fake
+  const forwarded = request.headers.get('x-forwarded-for')?.split(',') ?? [];
+  const client = forwarded[forwarded.length - 1]?.trim() || 'unknown';
   if (isRateLimited(client)) {
     console.error('Contact form rate limit hit by', client);
     return NextResponse.json({ error: 'Too many messages' }, { status: 429 });

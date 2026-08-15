@@ -8,10 +8,12 @@ vi.mock('nodemailer', () => ({
   },
 }));
 
-function makeRequest(body: unknown): Request {
+function makeRequest(body: unknown, forwardedFor?: string): Request {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (forwardedFor) headers['x-forwarded-for'] = forwardedFor;
   return new Request('http://localhost/api/contact', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify(body),
   });
 }
@@ -54,6 +56,16 @@ describe('POST /api/contact', () => {
     expect((await send()).status).toBe(200);
     expect((await send()).status).toBe(200);
     expect((await send()).status).toBe(429);
+  });
+
+  it('ignores a spoofed client address in front of the proxy one', async () => {
+    const { POST } = await import('./route');
+    const send = (spoof: string) =>
+      POST(makeRequest({ name: 'Alice', email: 'a@b.com', message: 'Hello!' }, `${spoof}, 9.9.9.9`));
+    expect((await send('1.1.1.1')).status).toBe(200);
+    expect((await send('2.2.2.2')).status).toBe(200);
+    expect((await send('3.3.3.3')).status).toBe(200);
+    expect((await send('4.4.4.4')).status).toBe(429);
   });
 
   it('returns 200 on valid submission', async () => {
