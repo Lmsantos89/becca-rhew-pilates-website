@@ -47,6 +47,15 @@ describe('POST /api/contact', () => {
     expect(res.status).toBe(500);
   });
 
+  it('returns 429 once the same client sends too many messages', async () => {
+    const { POST } = await import('./route');
+    const send = () => POST(makeRequest({ name: 'Alice', email: 'a@b.com', message: 'Hello!' }));
+    expect((await send()).status).toBe(200);
+    expect((await send()).status).toBe(200);
+    expect((await send()).status).toBe(200);
+    expect((await send()).status).toBe(429);
+  });
+
   it('returns 200 on valid submission', async () => {
     const { POST } = await import('./route');
     const res = await POST(makeRequest({ name: 'Alice', email: 'a@b.com', message: 'Hello!' }));

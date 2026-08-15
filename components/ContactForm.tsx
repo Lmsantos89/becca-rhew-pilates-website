@@ -6,10 +6,13 @@ type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 const INPUT_CLASS =
   'rounded border border-[#E0DBD5] bg-white px-4 py-3 text-sm outline-none focus:border-steel focus:ring-1 focus:ring-steel';
+// CAVEMAN: type=email alone lets "a@gmail" through, server wants a dotted domain
+const EMAIL_PATTERN = '[^\\s@]+@[^\\s@]+\\.[^\\s@]+';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [errorKey, setErrorKey] = useState<'error' | 'tooManyMessages'>('error');
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -26,6 +29,7 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
+      if (!res.ok) setErrorKey(res.status === 429 ? 'tooManyMessages' : 'error');
       setStatus(res.ok ? 'success' : 'error');
       if (res.ok) form.reset();
     } catch {
@@ -41,7 +45,13 @@ export default function ContactForm() {
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="email" className="text-sm font-medium">{t('emailLabel')}</label>
-        <input id="email" name="email" type="email" required placeholder={t('emailPlaceholder')} className={INPUT_CLASS} />
+        <input
+          id="email" name="email" type="email" required
+          pattern={EMAIL_PATTERN}
+          title={t('emailInvalid')}
+          placeholder={t('emailPlaceholder')}
+          className={INPUT_CLASS}
+        />
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="message" className="text-sm font-medium">{t('messageLabel')}</label>
@@ -59,7 +69,7 @@ export default function ContactForm() {
         {status === 'sending' ? t('sending') : t('submit')}
       </button>
       {status === 'success' && <p className="text-sm text-steel">{t('success')}</p>}
-      {status === 'error' && <p className="text-sm text-red-600">{t('error')}</p>}
+      {status === 'error' && <p className="text-sm text-red-600">{t(errorKey)}</p>}
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { CONTACT_EMAIL, SMTP_HOST, SMTP_PORT } from '@/lib/site';
+import { isRateLimited } from '@/lib/rate-limit';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -20,6 +21,12 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   if (!isValidBody(body)) {
     return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
+  }
+
+  const client = request.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown';
+  if (isRateLimited(client)) {
+    console.error('Contact form rate limit hit by', client);
+    return NextResponse.json({ error: 'Too many messages' }, { status: 429 });
   }
 
   const password = process.env.SMTP_PASSWORD;
