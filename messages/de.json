@@ -58,7 +58,9 @@
     "submit": "Nachricht senden",
     "sending": "Wird gesendet…",
     "success": "Nachricht gesendet! Ich melde mich bald.",
-    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreibe mir direkt."
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreibe mir direkt.",
+    "emailInvalid": "Gib eine vollständige E-Mail-Adresse ein, zum Beispiel name@example.com",
+    "tooManyMessages": "Zu viele Nachrichten gesendet. Bitte warte ein paar Minuten oder schreibe mir direkt."
   },
   "experiences": {
     "title": "Pilates-Angebote",

@@ -58,7 +58,9 @@
     "submit": "Send Message",
     "sending": "Sending…",
     "success": "Message sent! I'll get back to you soon.",
-    "error": "Something went wrong. Please try again or email me directly."
+    "error": "Something went wrong. Please try again or email me directly.",
+    "emailInvalid": "Enter a full email address, for example name@example.com",
+    "tooManyMessages": "Too many messages sent. Please wait a few minutes or email me directly."
   },
   "experiences": {
     "title": "Pilates Experiences",
