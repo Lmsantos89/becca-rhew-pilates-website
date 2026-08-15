@@ -84,7 +84,8 @@ export default function HeroSlideshow({
             <img
               src={slide.src}
               alt=""
-              className="h-full w-full object-cover"
+              // CAVEMAN: narrow screens crop the sides hard, hold the subjects left of centre
+              className="h-full w-full object-cover object-[42%_center] md:object-center"
               // CAVEMAN: missing photo file falls back to the tint behind it
               onError={(event) => {
                 event.currentTarget.style.visibility = 'hidden';

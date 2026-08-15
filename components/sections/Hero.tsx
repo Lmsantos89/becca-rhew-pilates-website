@@ -19,7 +19,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
   const subheading = settings?.heroSubheading ?? t('subheading');
 
   return (
-    <section id="home" className="relative flex min-h-[88vh] items-end overflow-hidden">
+    <section id="home" className="relative flex min-h-[70vh] items-end overflow-hidden md:min-h-[88vh]">
       <div className="absolute inset-0">
         <HeroSlideshow slides={PLACEHOLDER_SLIDES} rounded={false} showDots={false} />
       </div>
