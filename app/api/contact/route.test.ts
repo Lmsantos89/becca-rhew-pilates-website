@@ -1,14 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-vi.mock('resend', () => ({
-  // vitest v4 requires function keyword for constructor mocks
-  Resend: vi.fn().mockImplementation(function () {
-    return {
-      emails: {
-        send: vi.fn().mockResolvedValue({ data: { id: 'test-id' }, error: null }),
-      },
-    };
-  }),
+vi.mock('nodemailer', () => ({
+  default: {
+    createTransport: vi.fn(() => ({
+      sendMail: vi.fn().mockResolvedValue({ messageId: 'test-id' }),
+    })),
+  },
 }));
 
 function makeRequest(body: unknown): Request {
@@ -22,7 +19,7 @@ function makeRequest(body: unknown): Request {
 describe('POST /api/contact', () => {
   beforeEach(() => {
     vi.resetModules();
-    process.env.RESEND_API_KEY = 'test-key';
+    process.env.SMTP_PASSWORD = 'test-password';
   });
 
   it('returns 400 when name is empty', async () => {
@@ -41,6 +38,13 @@ describe('POST /api/contact', () => {
     const { POST } = await import('./route');
     const res = await POST(makeRequest({ name: 'Alice', email: 'a@b.com', message: '' }));
     expect(res.status).toBe(400);
+  });
+
+  it('returns 500 when SMTP_PASSWORD is missing', async () => {
+    delete process.env.SMTP_PASSWORD;
+    const { POST } = await import('./route');
+    const res = await POST(makeRequest({ name: 'Alice', email: 'a@b.com', message: 'Hello!' }));
+    expect(res.status).toBe(500);
   });
 
   it('returns 200 on valid submission', async () => {
