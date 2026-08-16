@@ -10,8 +10,20 @@ const HERO_SLIDES = [
   { tint: '#3E5A73', alt: 'Private session on the tower, guided side stretch', src: '/images/hero/slide-3.jpg' },
   { tint: '#5A7D9A', alt: 'Hands on cue during a reformer group class', src: '/images/hero/slide-4.jpg' },
   { tint: '#8DBFB7', alt: 'Mat class lying down with arms reaching overhead', src: '/images/hero/slide-5.jpg' },
-  { tint: '#3E5A73', alt: 'Private mat session, instructor mobilising a hip', src: '/images/hero/slide-6.jpg' },
+  {
+    tint: '#3E5A73',
+    alt: 'Private mat session, instructor mobilising a hip',
+    src: '/images/hero/slide-6.jpg',
+    // CAVEMAN: high crop cuts her head, low crop cuts the woman on the mat, sit between
+    positionClass: 'object-[42%_32%] md:object-[center_32%]',
+  },
 ];
+
+// CAVEMAN: german headline is longer, needs a wider box to stay on two lines
+const HEADLINE_WIDTH: Record<Locale, string> = {
+  en: 'max-w-2xl',
+  de: 'max-w-4xl',
+};
 
 export default async function Hero({ locale }: { locale: Locale }) {
   const [t, settings] = await Promise.all([
@@ -28,7 +40,9 @@ export default async function Hero({ locale }: { locale: Locale }) {
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent" />
       <div className="relative mx-auto w-full max-w-container px-6 pb-16 text-white md:pb-24">
-        <h1 className="max-w-2xl font-heading text-4xl font-semibold leading-[1.05] md:text-6xl">
+        <h1
+          className={`${HEADLINE_WIDTH[locale]} font-heading text-4xl font-semibold leading-[1.05] md:text-6xl`}
+        >
           {headline}
         </h1>
         <p className="mt-5 max-w-lg text-lg text-white/90">{subheading}</p>

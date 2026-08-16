@@ -5,7 +5,10 @@ interface Slide {
   tint: string;
   alt: string;
   src?: string;
+  positionClass?: string;
 }
+
+const DEFAULT_POSITION = 'object-[42%_center] md:object-center';
 
 interface Props {
   slides: Slide[];
@@ -101,7 +104,7 @@ export default function HeroSlideshow({
               src={slide.src}
               alt=""
               // CAVEMAN: narrow screens crop the sides hard, hold the subjects left of centre
-              className="h-full w-full object-cover object-[42%_center] md:object-center"
+              className={`h-full w-full object-cover ${slide.positionClass ?? DEFAULT_POSITION}`}
               // CAVEMAN: missing photo file falls back to the tint behind it
               onError={(event) => {
                 event.currentTarget.style.visibility = 'hidden';
