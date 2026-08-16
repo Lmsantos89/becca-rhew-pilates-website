@@ -1,8 +1,9 @@
 # Pilates Experiences photo
 
-Drop the section photo here named exactly:
+Section photo, exact name:
 
-- photo-1.jpg
+- photo-1.jpg (DSCF6417)
 
-Until the file exists, the slot shows a soft colour placeholder.
-Recommended: portrait (3:4), at least 800px wide, .jpg.
+Slot is 3:4, photo is 2:3, so top and bottom get trimmed a little.
+Portrait, resized to 1200px wide, jpeg quality 80.
+Missing file shows a colour block.

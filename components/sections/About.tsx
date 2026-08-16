@@ -83,6 +83,7 @@ function ApproachArc({ approach }: { approach: string }) {
         alt="Becca Rhew"
         tint="#C5D8E2"
         className="aspect-square w-80 rounded-full"
+        objectPosition="center top"
       />
     </div>
   );

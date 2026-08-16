@@ -23,6 +23,21 @@ function prefersReducedMotion(): boolean {
   );
 }
 
+// CAVEMAN: only fetch photo on screen plus next one, six full width shots cost too much
+function useLoadedSlides(index: number, slideCount: number): Set<number> {
+  const [loaded, setLoaded] = useState(() => new Set([0, 1]));
+
+  useEffect(() => {
+    const next = (index + 1) % slideCount;
+    setLoaded((current) => {
+      if (current.has(index) && current.has(next)) return current;
+      return new Set(current).add(index).add(next);
+    });
+  }, [index, slideCount]);
+
+  return loaded;
+}
+
 function SlideDots({
   slides,
   index,
@@ -57,6 +72,7 @@ export default function HeroSlideshow({
   showDots = true,
 }: Props) {
   const [index, setIndex] = useState(0);
+  const loadedSlides = useLoadedSlides(index, slides.length);
 
   useEffect(() => {
     if (slides.length <= 1 || prefersReducedMotion()) return;
@@ -80,7 +96,7 @@ export default function HeroSlideshow({
           }`}
           style={{ backgroundColor: slide.tint }}
         >
-          {slide.src && (
+          {slide.src && loadedSlides.has(position) && (
             <img
               src={slide.src}
               alt=""
