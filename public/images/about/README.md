@@ -1,8 +1,9 @@
 # About Me photo
 
-Drop Becca's headshot here named exactly:
+Becca headshot, exact name:
 
-- becca.jpg
+- becca.jpg (DSCF6278)
 
-It is cropped to a circle. Use a roughly square photo, at least 600px.
-Until the file exists, a soft colour circle shows instead.
+Cropped to a circle, anchored to the top so the face stays in frame.
+Portrait or square, resized to 900px wide, jpeg quality 80.
+Missing file shows a colour circle.
