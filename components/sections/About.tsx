@@ -60,31 +60,20 @@ function Biography({
   );
 }
 
-// CAVEMAN: headshot placeholder + arced approach text split out so About stays under 40 lines
-function ApproachArc({ approach }: { approach: string }) {
+// CAVEMAN: 2:3 box matches the photo shape, so nothing of her gets cut off
+function Headshot({ approach }: { approach: string }) {
   return (
-    <div className="relative flex justify-center pt-16">
-      <svg
-        viewBox="0 0 400 400"
-        className="pointer-events-none absolute top-6 left-1/2 h-[25rem] w-[25rem] -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <defs>
-          <path id="approachArc" d="M 26 200 A 174 174 0 0 1 374 200" fill="none" />
-        </defs>
-        <text className="fill-steel font-heading text-[16px]">
-          <textPath href="#approachArc" startOffset="50%" textAnchor="middle">
-            {approach}
-          </textPath>
-        </text>
-      </svg>
+    <div className="relative flex flex-col items-center">
       <FallbackImage
         src="/images/about/becca.jpg"
         alt="Becca Rhew"
         tint="#C5D8E2"
-        className="aspect-square w-80 rounded-full"
-        objectPosition="center top"
+        className="aspect-[2/3] w-80 rounded-2xl"
       />
+      {/* CAVEMAN: on wide screens the line leaves the flow, so the photo centres on the bio */}
+      <p className="mt-6 w-80 text-center font-heading text-lg italic leading-relaxed text-steel md:absolute md:left-1/2 md:top-full md:-translate-x-1/2">
+        {approach}
+      </p>
     </div>
   );
 }
@@ -102,14 +91,14 @@ export default async function About({ locale }: { locale: Locale }) {
 
   return (
     <section id="about" className="bg-white py-24">
-      <div className="mx-auto grid max-w-container gap-16 px-6 md:grid-cols-2 md:items-start">
+      <div className="mx-auto grid max-w-container gap-16 px-6 md:grid-cols-2 md:items-center">
         <Biography
           t={t}
           locale={locale}
           bioValue={hasBio ? (settings!.bioText as unknown[]) : null}
           certifications={certifications}
         />
-        <ApproachArc approach={approach} />
+        <Headshot approach={approach} />
       </div>
     </section>
   );
