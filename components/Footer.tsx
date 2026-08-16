@@ -7,6 +7,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-mint py-8">
       <div className="mx-auto flex max-w-container flex-col items-center gap-3 px-6">
+        <img src="/images/logo/logo.svg" alt="Vitality Pilates" className="h-24 w-auto" />
         <p className="text-sm text-muted">{t('copyright', { year })}</p>
       </div>
     </footer>

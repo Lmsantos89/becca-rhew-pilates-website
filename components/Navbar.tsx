@@ -131,9 +131,14 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-container items-center justify-between px-6 py-4">
-        {/* CAVEMAN: logo image drops in here when client sends it */}
-        <a href="#home" className="font-heading text-2xl font-semibold tracking-wide text-ink md:text-3xl">
-          Vitality Pilates
+        {/* CAVEMAN: mark beside wordmark, stacked lockup shrinks the text to mush in a nav bar */}
+        <a href="#home" className="flex items-center gap-3">
+          <img src="/images/logo/logo-mark.svg" alt="" className="h-12 w-12 md:h-14 md:w-14" />
+          <img
+            src="/images/logo/logo-wordmark.svg"
+            alt="Vitality Pilates"
+            className="h-7 w-auto md:h-8"
+          />
         </a>
 
         <NavAnchors activeId={activeId} t={t} />
