@@ -11,4 +11,9 @@ Slideshow on Home. Six photos, exact names, this order:
 
 Auto rotate every 5 seconds with a crossfade. Missing file shows a colour tint.
 Landscape, resized to 2200px wide, jpeg quality 80. Keep each file under 400 KB.
+
+Each shot also needs slide-N-mobile.jpg, a 4:5 crop at 1100x1375, quality 80.
+Phones below 768px load it instead. Landscape in a tall phone box cuts more than
+half the width off, so crop by hand on Becca and the students, not on the room.
+
 Adding or dropping a slide needs an edit in components/sections/Hero.tsx.

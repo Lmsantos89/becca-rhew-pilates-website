@@ -5,10 +5,13 @@ interface Slide {
   tint: string;
   alt: string;
   src?: string;
+  mobileSrc?: string;
   positionClass?: string;
 }
 
-const DEFAULT_POSITION = 'object-[42%_center] md:object-center';
+const DEFAULT_POSITION = 'object-center';
+// CAVEMAN: matches tailwind md, phones get the 4:5 crop instead of the landscape shot
+const MOBILE_MEDIA = '(max-width: 767px)';
 
 interface Props {
   slides: Slide[];
@@ -100,16 +103,18 @@ export default function HeroSlideshow({
           style={{ backgroundColor: slide.tint }}
         >
           {slide.src && loadedSlides.has(position) && (
-            <img
-              src={slide.src}
-              alt=""
-              // CAVEMAN: narrow screens crop the sides hard, hold the subjects left of centre
-              className={`h-full w-full object-cover ${slide.positionClass ?? DEFAULT_POSITION}`}
-              // CAVEMAN: missing photo file falls back to the tint behind it
-              onError={(event) => {
-                event.currentTarget.style.visibility = 'hidden';
-              }}
-            />
+            <picture className="block h-full w-full">
+              {slide.mobileSrc && <source media={MOBILE_MEDIA} srcSet={slide.mobileSrc} />}
+              <img
+                src={slide.src}
+                alt=""
+                className={`h-full w-full object-cover ${slide.positionClass ?? DEFAULT_POSITION}`}
+                // CAVEMAN: missing photo file falls back to the tint behind it
+                onError={(event) => {
+                  event.currentTarget.style.visibility = 'hidden';
+                }}
+              />
+            </picture>
           )}
         </div>
       ))}
